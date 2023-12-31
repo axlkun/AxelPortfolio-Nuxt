@@ -8,15 +8,16 @@
 
         <v-sheet class="skeleton d-flex flex-column-reverse flex-md-column" v-if="loading" color="#f5f1f1">
             <template v-for="rowIndex in 2">
-              <v-row :class="rowIndex === 1 ? 'pt-md-10' : ''" >
-                <template v-for="colIndex in 3">
-                  <v-col cols="12" md="4">
-                    <v-skeleton-loader :height="rowIndex == 1 ? 500 : 400" type="image, article, chip" color="#f5f1f1"></v-skeleton-loader>
-                  </v-col>
-                </template>
-              </v-row>
+                <v-row :class="rowIndex === 1 ? 'pt-md-10' : ''">
+                    <template v-for="colIndex in 3">
+                        <v-col cols="12" md="4">
+                            <v-skeleton-loader :height="rowIndex == 1 ? 500 : 400" type="image, article, chip"
+                                color="#f5f1f1"></v-skeleton-loader>
+                        </v-col>
+                    </template>
+                </v-row>
             </template>
-          </v-sheet>
+        </v-sheet>
 
         <articlestList :blogEntry="blogEntry" v-else></articlestList>
 
@@ -24,52 +25,37 @@
     </v-sheet>
 </template>
 
-<script>
+<script setup>
 import api from '../api';
 import articlestList from '../components/ArticlesList.vue';
 import contactSection from '../components/ContactSection.vue';
 
-export default {
+const blogEntry = ref([]);
+let loading = ref(true);
 
-    name: 'blog',
+const getArticles = () => {
+    api.get('/api/articles')
+        .then(response => {
 
-    components: {
-        contactSection,
-        articlestList
-    },
-
-    data: () => ({
-        blogEntry: [],
-        loading: true
-    }),
-
-    methods: {
-        getArticles() {
-            api.get('/api/articles')
-                .then(response => {
-                    
-                    if (response.status === 200) {
-                        this.blogEntry = response.data.data;
-                    } else {
-                        console.error('Respuesta no exitosa:', response);
-                        this.$router.push('/');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error al hacer la solicitud GET:', error);
-                    this.$router.push('/');
-                })
-                .finally(() => {
-                    this.loading = false; // Desactiva el estado de carga después de la solicitud
-                });
-        }
-    },
-
-    created() {
-        this.getArticles();
-    }
+            if (response.status === 200) {
+                blogEntry.value = response.data.data;
+            } else {
+                console.error('Respuesta no exitosa:', response);
+                this.$router.push('/');
+            }
+        })
+        .catch(error => {
+            console.error('Error al hacer la solicitud GET:', error);
+            this.$router.push('/');
+        })
+        .finally(() => {
+            loading = false; // Desactiva el estado de carga después de la solicitud
+        });
 }
 
+onMounted(() => {
+    getArticles();
+})
 </script>
 
 <style scoped>
