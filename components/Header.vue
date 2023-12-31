@@ -5,7 +5,7 @@
             <div class="container-bar">
                 <a class="logo" href="/">
                     <div>
-                        <img :src="logo" alt="Icono"/>
+                        <img :src="logo" alt="Icono" />
                     </div>
                     <div>
                         <p><span>Axel</span>Cruz</p>
@@ -25,11 +25,11 @@
             <div class="container-menu" :class="{ 'hide': !menuOpen }">
                 <ul class="menu desktop-menu">
                     <li><a href="/">Inicio</a></li>
-                    <li><a @click="redirectSection('aboutme')">Sobre mi</a></li>
-                    <li><a @click="redirectSection('services')">Servicios</a></li>
+                    <li><a href="/#aboutme">Sobre mi</a></li>
+                    <li><a href="/#services">Servicios</a></li>
                     <li><a href="/proyectos">Proyectos</a></li>
                     <li><a href="/blog">Blog</a></li>
-                    <li><a @click="redirectSection('contact')" class="button">Contacto</a></li>
+                    <li><a href="/#contact" class="button">Contacto</a></li>
                 </ul>
 
                 <div class="hide-icon">
@@ -41,46 +41,20 @@
     </header>
 </template>
   
-<script>
-import { scrollToSection } from '../utils/utils';
+<script setup>
 import logo from '../assets/logo.svg';
 
-export default {
+const menuOpen = ref(false);
 
-    name: 'myHeader',
+const toggleMenu = () => {
+    menuOpen = !menuOpen;
 
-    data: () => ({
-        logo,
-
-        menuOpen: false
-    }),
-
-    methods: {
-        scrollToSection, // se declara la función importada
-
-        toggleMenu() {
-            this.menuOpen = !this.menuOpen;
-
-            if (!this.menuOpen) {
-                window.scrollTo(0, 0);
-            }
-        },
-
-        redirectSection(sectionName) {
-
-            const windowWidth = window.innerWidth;
-
-            if (windowWidth <= 1024) {
-                
-                this.menuOpen = !this.menuOpen;
-            }
-            
-
-            this.scrollToSection(sectionName);
-        }
-    },
-
+    if (!menuOpen) {
+        window.scrollTo(0, 0);
+    }
 }
+
+
 </script>
   
 <style scoped>
