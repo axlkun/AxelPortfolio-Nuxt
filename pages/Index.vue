@@ -9,36 +9,17 @@
     </v-sheet>
 </template>
 
-<script>
+<script setup>
 import homeSection from '../components/HomeSection.vue';
 import aboutMeSection from '../components/AboutMeSection.vue';
 import servicesSection from '../components/ServicesSection.vue';
 import workSection from '../components/WorkSection.vue';
 import blogSection from '../components/BlogSection.vue';
 import contactSection from '../components/ContactSection.vue';
+import { defineProps } from 'vue';
 
-export default {
+const props = defineProps(['blogEntry']);
 
-    name: 'home',
-
-    head() {
-        return {
-            title: 'Axel Cruz | Fullstack Developer'
-        }
-    },
-
-    components: {
-        homeSection,
-        aboutMeSection,
-        servicesSection,
-        workSection,
-        blogSection,
-        contactSection
-    },
-
-    props: ['blogEntry'],
-
-}
 </script>
 
 <style scoped></style>
