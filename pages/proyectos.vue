@@ -25,52 +25,37 @@
     </v-sheet>
 </template>
 
-<script>
+<script setup>
 import api from '../api';
 import projectList from '../components/ProjectsList.vue';
 import contactSection from '../components/ContactSection.vue';
 
-export default {
+const projects = ref([]);
+let loading = ref(true);
 
-    name: 'work',
+const getProjects = () => {
+    api.get('/api/projects')
+        .then(response => {
+            if (response.status === 200) {
+                projects.value = response.data.data;
+            } else {
+                console.error('Respuesta no exitosa:', response);
+                this.$router.push('/');
+            }
 
-    components: {
-        contactSection,
-        projectList
-    },
-
-    data: () => ({
-
-        projects: [],
-        loading: true
-    }),
-
-    methods: {
-        getProjects() {
-            api.get('/api/projects')
-                .then(response => {
-                    if (response.status === 200) {
-                        this.projects = response.data.data;
-                    } else {
-                        console.error('Respuesta no exitosa:', response);
-                        this.$router.push('/');
-                    }
-
-                })
-                .catch(error => {
-                    console.error('Error al hacer la solicitud GET:', error);
-                    this.$router.push('/');
-                })
-                .finally(() => {
-                    this.loading = false; // Desactiva el estado de carga después de la solicitud
-                });
-        }
-    },
-
-    created() {
-        this.getProjects();
-    }
+        })
+        .catch(error => {
+            console.error('Error al hacer la solicitud GET:', error);
+            this.$router.push('/');
+        })
+        .finally(() => {
+            loading = false; // Desactiva el estado de carga después de la solicitud
+        });
 }
+
+onMounted(() => {
+    getProjects();
+})
 
 </script>
 
