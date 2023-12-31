@@ -21,7 +21,7 @@ const blogEntry = ref([]);
 const getArticles = async () => {
   api.get('/api/articles?limit=6')
     .then(response => {
-      this.blogEntry = response.data.data;
+      blogEntry.value = response.data.data;
     })
     .catch(error => {
       console.error('Error al hacer la solicitud GET:', error);
