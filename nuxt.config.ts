@@ -23,4 +23,22 @@ export default defineNuxtConfig({
       },
     },
   },
+
+  hooks: {
+    'pages:extend'(pages) {
+      // add a route
+      pages.push(
+        {
+          name: 'article',
+          path: '/blog/:slug',
+          file: '~/pages/blog/[...slug].vue',
+        },
+        {
+          name: 'project',
+          path: '/proyectos/:slug',
+          file: '~/pages/proyectos/[...slug].vue',
+        }
+      )
+    }
+  },
 })
