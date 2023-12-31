@@ -9,6 +9,7 @@ body{
   --secondary-grey: #181818;
   --primary-purple: #ac7ce4;
   --primary-black: #232325;
+  scroll-behavior: smooth;
 
 }
 
