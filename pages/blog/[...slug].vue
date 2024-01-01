@@ -89,93 +89,89 @@
     </v-sheet>
 </template>
 
-<script>
+<script setup>
 import api from '../api';
 import articlesList from '../components/ArticlesList.vue';
 import contactSection from '../components/ContactSection.vue';
 import Prism from 'prismjs';
 // import 'prismjs/components/prism-javascript';
 import 'prismjs/themes/prism-okaidia.css';
+import { ref, watch, onMounted } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
-export default {
+const route = useRoute();
+const router = useRouter();
+const slug = ref(route.params.slug);
+const dominio = api.defaults.baseURL;
+const article = ref(null);
+const articles = ref(null);
+const loading = ref(true);
 
-    name: 'articleDetail',
 
-    props: ['slug'],
+const highlightCode = () => {
+    nextTick(() => {
+        // Busca elementos <code> dentro del componente y resalta su contenido
+        refs.articleDetail.querySelectorAll('code').forEach((codeElement) => {
+            Prism.highlightElement(codeElement);
+        });
+    });
+};
 
-    components: {
-        articlesList,
-        contactSection
-    },
 
-    data: () => ({
 
-        dominio: api.defaults.baseURL,
-        article: null,
-        articles: null,
-        loading: true
-    }),
+const loadData = async () => {
+    loading.value = true;
 
-    watch: {
-        slug: 'loadData' // Llama a la función loadData cuando la prop slug cambia
-    },
-
-    methods: {
-        highlightCode() {
-            this.$nextTick(() => {
-                // Busca elementos <code> dentro del componente y resalta su contenido
-                this.$el.querySelectorAll('code').forEach((codeElement) => {
-                    Prism.highlightElement(codeElement);
-                });
-            });
-        },
-
-        async loadData() {
-            this.loading = true;
-
-            try {
-                const articleResponse = await this.loadArticle();
-                if (articleResponse.status === 200) {
-                    this.article = articleResponse.data.data;
-                } else {
-                    // Redirige al índice en caso de respuesta no exitosa
-                    this.$router.push('/');
-                }
-            } catch (error) {
-                this.handleError(error);
-            }
-            finally {
-                this.loading = false;
-                this.highlightCode();
-            }
-
-            // Realiza la otra petición en segundo plano
-            this.loadRelatedArticles();
-        },
-
-        async loadArticle() {
-            return await api.get(`/api/articles/${this.slug}`);
-        },
-
-        async loadRelatedArticles() {
-            try {
-                const relatedArticlesResponse = await api.get(`/api/related-articles/${this.slug}`);
-                this.articles = relatedArticlesResponse.data.data;
-            } catch (error) {
-                console.error('Error al obtener artículos relacionados:', error);
-            }
-        },
-
-        handleError(error) {
-            console.error('Error al hacer la solicitud GET:', error);
+    try {
+        const articleResponse = await loadArticle();
+        if (articleResponse.status === 200) {
+            article.value = articleResponse.data.data;
+        } else {
+            // Redirige al índice en caso de respuesta no exitosa
             this.$router.push('/');
         }
-    },
-    created() {
+    } catch (error) {
+        handleError(error);
+    }
+    finally {
+        loading.value = false;
+        highlightCode();
+    }
 
-        this.loadData();
-    },
+    // Realiza la otra petición en segundo plano
+    loadRelatedArticles();
 }
+
+
+const loadArticle = async () => {
+    return await api.get(`/api/articles/${slug.value}`);
+}
+
+
+const loadRelatedArticles = async () => {
+    try {
+        const relatedArticlesResponse = await api.get(`/api/related-articles/${slug.value}`);
+        articles.value = relatedArticlesResponse.data.data;
+    } catch (error) {
+        console.error('Error al obtener artículos relacionados:', error);
+    }
+}
+
+
+const handleError = (error) => {
+    console.error('Error al hacer la solicitud GET:', error);
+    router.push('/');
+};
+
+watch(() => route.params.slug, () => {
+    slug.value = route.params.slug;
+    loadData();
+});
+
+onMounted(() => {
+    loadData();
+});
+
 </script>
 
 <style scoped>
