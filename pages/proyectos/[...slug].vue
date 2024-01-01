@@ -89,82 +89,75 @@
     </v-sheet>
 </template>
 
-<script>
+<script setup>
 import api from '../api';
 import relatedProjects from '../components/RelatedProjects.vue';
 import contactSection from '../components/ContactSection.vue';
+import { ref, watch, onMounted } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
-export default {
+const route = useRoute();
+const router = useRouter();
+const slug = ref(route.params.slug);
+const dominio = api.defaults.baseURL;
+const project = ref(null);
+const projects = ref(null);
+const loading = ref(true);
 
-    name: 'project',
 
-    props: ['slug'],
+const loadData = async () => {
+    loading.value = true;
 
-    components: {
-        relatedProjects,
-        contactSection
-    },
+    try {
+        const projectResponse = await loadProject();
+        if (projectResponse.status === 200) {
+            project.value = projectResponse.data.data;
 
-    data: () => ({
-
-        dominio: api.defaults.baseURL,
-        project: null,
-        projects: null,
-        loading: true
-    }),
-
-    watch: {
-        slug: 'loadData' // Llama a la función loadData cuando la prop slug cambia
-    },
-
-    methods: {
-        async loadData() {
-            this.loading = true;
-
-            try {
-                const projectResponse = await this.loadProject();
-                if (projectResponse.status === 200) {
-                    this.project = projectResponse.data.data;
-
-                } else {
-                    // Redirige al índice en caso de respuesta no exitosa
-                    this.$router.push('/');
-                }
-            } catch (error) {
-                this.handleError(error);
-            }
-            finally {
-                this.loading = false;
-            }
-
-            // Realiza la otra petición en segundo plano
-            this.loadRelatedProjects();
-        },
-
-        async loadProject() {
-            return await api.get(`/api/projects/${this.slug}`);
-        },
-
-        async loadRelatedProjects() {
-            try {
-                const relatedProjectResponse = await api.get(`/api/related-projects/${this.slug}`);
-                this.projects = relatedProjectResponse.data.data;
-            } catch (error) {
-                console.error('Error al obtener proyectos relacionados:', error);
-            }
-        },
-
-        handleError(error) {
-            console.error('Error al hacer la solicitud GET:', error);
+        } else {
+            // Redirige al índice en caso de respuesta no exitosa
             this.$router.push('/');
         }
-    },
+    } catch (error) {
+        handleError(error);
+    }
+    finally {
+        loading.value = false;
+    }
 
-    created() {
-        this.loadData();
+    // Realiza la otra petición en segundo plano
+    loadRelatedProjects();
+}
+
+
+const loadProject = async () => {
+    return await api.get(`/api/projects/${slug.value}`);
+}
+
+
+const loadRelatedProjects = async () => {
+    try {
+        const relatedProjectResponse = await api.get(`/api/related-projects/${slug.value}`);
+        projects.value = relatedProjectResponse.data.data;
+    } catch (error) {
+        console.error('Error al obtener proyectos relacionados:', error);
     }
 }
 
+const handleError = (error) => {
+    console.error('Error al hacer la solicitud GET:', error);
+    this.$router.push('/');
+}
+
+
+
+watch(() => route.params.slug, () => {
+    slug.value = route.params.slug;
+    loadData();
+});
+
+onMounted(() => {
+    loadData();
+});
 </script>
 
 <style scoped>
