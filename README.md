@@ -1,4 +1,4 @@
-# Axel Portfolio
+# Axel Portfolio - Blog
 
 # Nuxt 3 Minimal Starter
 
