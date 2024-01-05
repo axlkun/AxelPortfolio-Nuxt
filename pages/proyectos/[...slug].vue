@@ -113,6 +113,27 @@ const loadData = async () => {
         if (projectResponse.status === 200) {
             project.value = projectResponse.data.data;
 
+            useSeoMeta({
+
+                robots: 'index, follow',
+                title: () => "Axel Cruz | " + project.value.title,
+                author: 'Axel Cruz',
+                description: () => project.value.summary,
+                keywords: 'programación, fullstack developer, axel cruz, php, laravel, nuxt, vue, vuetify, mysql, sqlserver, startp, sideproject, solopreneur',
+
+                ogTitle: 'Axel Cruz | Fullstack Developer',
+                ogDescription: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México, apasionado por el desarrollo de software de alto performance y excelente experiencia de usuario.',
+                ogImage: 'https://www.axelcruz.space/og-image.png',
+                ogUrl: 'https://www.axelcruz.space/',
+                ogType: 'website',
+
+                twitterCreator: '@Axlkun',
+                twitterImage: () => dominio + project.value.imageUrl,
+                twitterCard: 'summary_large_image',
+                twitterTitle: () => 'Axel Cruz | ' + project.value.title,
+                twitterDescription: () => project.value.summary
+            })
+
         } else {
             // Redirige al índice en caso de respuesta no exitosa
             this.$router.push('/');
