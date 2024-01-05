@@ -57,6 +57,27 @@ onMounted(() => {
     getProjects();
 })
 
+useSeoMeta({
+
+robots: 'index, follow',
+
+title: 'Axel Cruz | Proyectos',
+author: 'Axel Cruz',
+description: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México. Aquí puedes explorar los diferentes proyectos de software que he realizado, así como el stack de tecnologías con el que los desarrollé, donde destacan PHP, Laravel, Vuejs, Nuxt, MySQL, SQLServer, entre otras.',
+
+ogTitle: 'Axel Cruz | Fullstack Developer',
+ogDescription: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México, apasionado por el desarrollo de software de alto performance y excelente experiencia de usuario.',
+ogImage: 'https://www.axelcruz.space/og-image.png',
+ogUrl: 'https://www.axelcruz.space/',
+ogType: 'website',
+
+twitterCreator: '@Axlkun',
+twitterImage: 'https://www.axelcruz.space/og-image.png',
+twitterCard: 'summary_large_image',
+twitterTitle: 'Axel Cruz | Proyectos',
+twitterDescription: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México. Explora los proyectos que he realizado.'
+})
+
 </script>
 
 <style scoped>
