@@ -19,6 +19,27 @@ import contactSection from '../components/ContactSection.vue';
 
 const props = defineProps(['blogEntry']);
 
+useSeoMeta({
+
+robots: 'index, follow',
+
+title: 'Axel Cruz | Fullstack Developer',
+author: 'Axel Cruz',
+description: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México, apasionado por el desarrollo de software de alto performance y excelente experiencia de usuario.',
+
+ogTitle: 'Axel Cruz | Fullstack Developer',
+ogDescription: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México, apasionado por el desarrollo de software de alto performance y excelente experiencia de usuario.',
+ogImage: 'https://www.axelcruz.space/og-image.png',
+ogUrl: 'https://www.axelcruz.space/',
+ogType: 'website',
+
+twitterCreator: '@Axlkun',
+twitterImage: 'https://www.axelcruz.space/og-image.png',
+twitterCard: 'summary_large_image',
+twitterTitle: 'Axel Cruz | Fullstack Developer',
+twitterDescription: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México, apasionado por el desarrollo de software de alto performance y excelente experiencia de usuario.'
+})
+
 </script>
 
 <style scoped></style>
