@@ -96,7 +96,7 @@ import contactSection from '../components/ContactSection.vue';
 import Prism from 'prismjs';
 // import 'prismjs/components/prism-javascript';
 import 'prismjs/themes/prism-okaidia.css';
-import { ref, watch, onMounted } from 'vue';
+import { ref, watch, onMounted, nextTick } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 const route = useRoute();
@@ -109,11 +109,9 @@ const loading = ref(true);
 
 
 const highlightCode = () => {
+    
     nextTick(() => {
-        // Busca elementos <code> dentro del componente y resalta su contenido
-        refs.articleDetail.querySelectorAll('code').forEach((codeElement) => {
-            Prism.highlightElement(codeElement);
-        });
+        Prism.highlightAll();
     });
 };
 
@@ -170,6 +168,7 @@ watch(() => route.params.slug, () => {
 
 onMounted(() => {
     loadData();
+    console.log(Prism);
 });
 
 </script>
