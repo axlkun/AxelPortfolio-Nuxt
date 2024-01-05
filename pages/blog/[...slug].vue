@@ -109,13 +109,11 @@ const loading = ref(true);
 
 
 const highlightCode = () => {
-    
+
     nextTick(() => {
         Prism.highlightAll();
     });
 };
-
-
 
 const loadData = async () => {
     loading.value = true;
@@ -124,6 +122,27 @@ const loadData = async () => {
         const articleResponse = await loadArticle();
         if (articleResponse.status === 200) {
             article.value = articleResponse.data.data;
+
+            useSeoMeta({
+
+                robots: 'index, follow',
+                title: () => "Axel Cruz | " + article.value.title,
+                author: 'Axel Cruz',
+                description: () => article.value.summary,
+                keywords: 'programación, fullstack developer, axel cruz, php, laravel, nuxt, vue, vuetify, mysql, sqlserver, startp, sideproject, solopreneur',
+
+                ogTitle: 'Axel Cruz | Fullstack Developer',
+                ogDescription: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México, apasionado por el desarrollo de software de alto performance y excelente experiencia de usuario.',
+                ogImage: 'https://www.axelcruz.space/og-image.png',
+                ogUrl: 'https://www.axelcruz.space/',
+                ogType: 'website',
+
+                twitterCreator: '@Axlkun',
+                twitterImage: () => dominio + article.value.imageUrl,
+                twitterCard: 'summary_large_image',
+                twitterTitle: () => 'Axel Cruz | ' + article.value.title,
+                twitterDescription: () => article.value.summary
+            })
         } else {
             // Redirige al índice en caso de respuesta no exitosa
             this.$router.push('/');
