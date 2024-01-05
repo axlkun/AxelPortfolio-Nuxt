@@ -169,6 +169,10 @@ nav {
     }
 }
 
+a:visited {
+    color: black;
+  }
+
 ul.menu li a.button {
     background-color: var(--primary-blue);
     color: white;
