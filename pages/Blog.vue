@@ -56,6 +56,27 @@ const getArticles = () => {
 onMounted(() => {
     getArticles();
 })
+
+useSeoMeta({
+
+robots: 'index, follow',
+
+title: 'Axel Cruz | Blog',
+author: 'Axel Cruz',
+description: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México. En este blog puedes encontrar artículos relacionados con el desarrollo de software, startups, noticias de tecnología y mucho más.',
+
+ogTitle: 'Axel Cruz | Fullstack Developer',
+ogDescription: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México, apasionado por el desarrollo de software de alto performance y excelente experiencia de usuario.',
+ogImage: 'https://www.axelcruz.space/og-image.png',
+ogUrl: 'https://www.axelcruz.space/',
+ogType: 'website',
+
+twitterCreator: '@Axlkun',
+twitterImage: 'https://www.axelcruz.space/og-image.png',
+twitterCard: 'summary_large_image',
+twitterTitle: 'Axel Cruz | Blog',
+twitterDescription: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México. En este blog puedes encontrar artículos relacionados con el desarrollo de software, startups, noticias de tecnología y mucho más.'
+})
 </script>
 
 <style scoped>
