@@ -16,7 +16,6 @@ import servicesSection from '../components/ServicesSection.vue';
 import workSection from '../components/WorkSection.vue';
 import blogSection from '../components/BlogSection.vue';
 import contactSection from '../components/ContactSection.vue';
-import { defineProps } from 'vue';
 
 const props = defineProps(['blogEntry']);
 
