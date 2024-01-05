@@ -13,8 +13,7 @@ export default defineNuxtConfig({
         { 'http-equiv': 'content-language', content: 'es' },
         // ...otras etiquetas meta
       ],
-      title: 'Axel Cruz | Fullstack Developer',
-
+      
       script: [
         {
           async: true,
