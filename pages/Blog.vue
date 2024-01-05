@@ -64,6 +64,7 @@ robots: 'index, follow',
 title: 'Axel Cruz | Blog',
 author: 'Axel Cruz',
 description: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México. En este blog puedes encontrar artículos relacionados con el desarrollo de software, startups, noticias de tecnología y mucho más.',
+keywords: 'programación, fullstack developer, axel cruz, php, laravel, nuxt, vue, vuetify, mysql, sqlserver, startp, sideproject, solopreneur',
 
 ogTitle: 'Axel Cruz | Fullstack Developer',
 ogDescription: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México, apasionado por el desarrollo de software de alto performance y excelente experiencia de usuario.',

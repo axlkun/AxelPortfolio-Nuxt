@@ -64,6 +64,7 @@ robots: 'index, follow',
 title: 'Axel Cruz | Proyectos',
 author: 'Axel Cruz',
 description: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México. Aquí puedes explorar los diferentes proyectos de software que he realizado, así como el stack de tecnologías con el que los desarrollé, donde destacan PHP, Laravel, Vuejs, Nuxt, MySQL, SQLServer, entre otras.',
+keywords: 'programación, fullstack developer, axel cruz, php, laravel, nuxt, vue, vuetify, mysql, sqlserver, startp, sideproject, solopreneur',
 
 ogTitle: 'Axel Cruz | Fullstack Developer',
 ogDescription: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México, apasionado por el desarrollo de software de alto performance y excelente experiencia de usuario.',
