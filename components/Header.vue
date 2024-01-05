@@ -25,11 +25,11 @@
             <div class="container-menu" :class="{ 'hide': !menuOpen }">
                 <ul class="menu desktop-menu">
                     <li><a href="/">Inicio</a></li>
-                    <li><a href="/#aboutme">Sobre mi</a></li>
-                    <li><a href="/#services">Servicios</a></li>
+                    <li><a @click="redirectSection('aboutme')">Sobre mi</a></li>
+                    <li><a @click="redirectSection('services')">Servicios</a></li>
                     <li><a href="/proyectos">Proyectos</a></li>
                     <li><a href="/blog">Blog</a></li>
-                    <li><a href="/#contact" class="button">Contacto</a></li>
+                    <li><a @click="redirectSection('contact')" class="button">Contacto</a></li>
                 </ul>
 
                 <div class="hide-icon">
@@ -42,19 +42,29 @@
 </template>
   
 <script setup>
+import { ref } from 'vue';
+import { scrollToSection } from '../utils/utils';
 import logo from '../assets/logo.svg';
 
 const menuOpen = ref(false);
 
 const toggleMenu = () => {
-    menuOpen = !menuOpen;
+  menuOpen.value = !menuOpen.value;
 
-    if (!menuOpen) {
-        window.scrollTo(0, 0);
-    }
-}
+  if (!menuOpen.value) {
+    window.scrollTo(0, 0);
+  }
+};
 
+const redirectSection = (sectionName) => {
+  const windowWidth = window.innerWidth;
 
+  if (windowWidth <= 1024) {
+    menuOpen.value = !menuOpen.value;
+  }
+
+  scrollToSection(sectionName);
+};
 </script>
   
 <style scoped>
