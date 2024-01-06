@@ -56,11 +56,6 @@ export default defineNuxtConfig({
       // add a route
       pages.push(
         {
-          name: 'index',
-          path: '/',
-          file: '~/pages/index.vue',
-        },
-        {
           name: 'article',
           path: '/blog/:slug',
           file: '~/pages/blog/[...slug].vue',
