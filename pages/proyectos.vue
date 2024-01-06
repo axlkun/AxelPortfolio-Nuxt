@@ -31,26 +31,24 @@ import projectList from '../components/ProjectsList.vue';
 import contactSection from '../components/ContactSection.vue';
 
 const projects = ref([]);
-let loading = ref(true);
+const loading = ref(true);
 
-const getProjects = () => {
-    api.get('/api/projects')
-        .then(response => {
-            if (response.status === 200) {
-                projects.value = response.data.data;
-            } else {
-                console.error('Respuesta no exitosa:', response);
-                this.$router.push('/');
-            }
+const getProjects = async () => {
+    try {
+        const response = await api.get('/api/projects');
 
-        })
-        .catch(error => {
-            console.error('Error al hacer la solicitud GET:', error);
-            this.$router.push('/');
-        })
-        .finally(() => {
-            loading = false; // Desactiva el estado de carga después de la solicitud
-        });
+        if (response.status === 200) {
+            projects.value = response.data.data;
+        } else {
+            console.error('Respuesta no exitosa:', response);
+            $router.push('/');
+        }
+    } catch (error) {
+        console.error('Error al hacer la solicitud GET:', error);
+        $router.push('/');
+    } finally {
+        loading.value = false;
+    }
 }
 
 onMounted(() => {
@@ -59,24 +57,24 @@ onMounted(() => {
 
 useSeoMeta({
 
-robots: 'index, follow',
+    robots: 'index, follow',
 
-title: 'Axel Cruz | Proyectos',
-author: 'Axel Cruz',
-description: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México. Aquí puedes explorar los diferentes proyectos de software que he realizado, así como el stack de tecnologías con el que los desarrollé, donde destacan PHP, Laravel, Vuejs, Nuxt, MySQL, SQLServer, entre otras.',
-keywords: 'programación, fullstack developer, axel cruz, php, laravel, nuxt, vue, vuetify, mysql, sqlserver, startp, sideproject, solopreneur',
+    title: 'Axel Cruz | Proyectos',
+    author: 'Axel Cruz',
+    description: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México. Aquí puedes explorar los diferentes proyectos de software que he realizado, así como el stack de tecnologías con el que los desarrollé, donde destacan PHP, Laravel, Vuejs, Nuxt, MySQL, SQLServer, entre otras.',
+    keywords: 'programación, fullstack developer, axel cruz, php, laravel, nuxt, vue, vuetify, mysql, sqlserver, startp, sideproject, solopreneur',
 
-ogTitle: 'Axel Cruz | Fullstack Developer',
-ogDescription: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México, apasionado por el desarrollo de software de alto performance y excelente experiencia de usuario.',
-ogImage: 'https://www.axelcruz.space/og-image.png',
-ogUrl: 'https://www.axelcruz.space/',
-ogType: 'website',
+    ogTitle: 'Axel Cruz | Fullstack Developer',
+    ogDescription: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México, apasionado por el desarrollo de software de alto performance y excelente experiencia de usuario.',
+    ogImage: 'https://www.axelcruz.space/og-image.png',
+    ogUrl: 'https://www.axelcruz.space/',
+    ogType: 'website',
 
-twitterCreator: '@Axlkun',
-twitterImage: 'https://www.axelcruz.space/og-image.png',
-twitterCard: 'summary_large_image',
-twitterTitle: 'Axel Cruz | Proyectos',
-twitterDescription: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México. Explora los proyectos que he realizado.'
+    twitterCreator: '@Axlkun',
+    twitterImage: 'https://www.axelcruz.space/og-image.png',
+    twitterCard: 'summary_large_image',
+    twitterTitle: 'Axel Cruz | Proyectos',
+    twitterDescription: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México. Explora los proyectos que he realizado.'
 })
 
 </script>
