@@ -2,8 +2,6 @@
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 export default defineNuxtConfig({
-  devtools: { enabled: true },
-
   app: {
     head: {
       htmlAttrs: {
@@ -50,6 +48,8 @@ export default defineNuxtConfig({
       },
     },
   },
+
+  devtools: { enabled: true },
 
   hooks: {
     'pages:extend'(pages) {
