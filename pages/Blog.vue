@@ -31,26 +31,24 @@ import articlestList from '../components/ArticlesList.vue';
 import contactSection from '../components/ContactSection.vue';
 
 const blogEntry = ref([]);
-let loading = ref(true);
+const loading = ref(true);
 
-const getArticles = () => {
-    api.get('/api/articles')
-        .then(response => {
+const getArticles = async () => {
+        try {
+        const response = await api.get('/api/articles');
 
-            if (response.status === 200) {
-                blogEntry.value = response.data.data;
-            } else {
-                console.error('Respuesta no exitosa:', response);
-                this.$router.push('/');
-            }
-        })
-        .catch(error => {
-            console.error('Error al hacer la solicitud GET:', error);
-            this.$router.push('/');
-        })
-        .finally(() => {
-            loading = false; // Desactiva el estado de carga después de la solicitud
-        });
+        if (response.status === 200) {
+            blogEntry.value = response.data.data;
+        } else {
+            console.error('Respuesta no exitosa:', response);
+            $router.push('/');
+        }
+    } catch (error) {
+        console.error('Error al hacer la solicitud GET:', error);
+        $router.push('/');
+    } finally {
+        loading.value = false;
+    }
 }
 
 onMounted(() => {
