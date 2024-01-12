@@ -40,6 +40,8 @@
             </v-sheet>
 
             <v-sheet class="description-container">
+
+                <v-breadcrumbs class="pl-0" :items="items" divider=">" color="#0801ff"></v-breadcrumbs>
                 <v-sheet class="project-data">
                     <v-sheet class="project-description">
                         <v-sheet class="title">
@@ -95,6 +97,23 @@ import relatedProjects from '../components/RelatedProjects.vue';
 import contactSection from '../components/ContactSection.vue';
 import { ref, watch, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+
+const items = ref([
+    {
+          title: 'Inicio',
+          disabled: false,
+          href: '/',
+        },
+        {
+          title: 'Proyectos',
+          disabled: false,
+          href: '/proyectos',
+        },
+        {
+          title: 'Proyecto',
+          disabled: true,
+        },
+])
 
 const route = useRoute();
 const router = useRouter();
