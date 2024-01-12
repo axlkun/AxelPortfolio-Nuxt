@@ -32,6 +32,7 @@
         <v-sheet class="container" v-else>
 
             <v-sheet class="description-container">
+                <v-breadcrumbs class="pl-0" :items="items" divider=">" color="#0801ff"></v-breadcrumbs>
                 <v-sheet class="project-data">
                     <v-sheet class="project-description">
                         <v-sheet class="title">
@@ -98,6 +99,23 @@ import Prism from 'prismjs';
 import 'prismjs/themes/prism-okaidia.css';
 import { ref, watch, onMounted, nextTick } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+
+const items = ref([
+    {
+          title: 'Inicio',
+          disabled: false,
+          href: '/',
+        },
+        {
+          title: 'Blog',
+          disabled: false,
+          href: '/proyectos',
+        },
+        {
+          title: 'Artículo',
+          disabled: true,
+        },
+])
 
 const route = useRoute();
 const router = useRouter();
