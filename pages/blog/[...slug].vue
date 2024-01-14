@@ -248,7 +248,6 @@ onMounted(() => {
 
 .description {
     margin: 15px 0;
-    color: var(--primary-blue);
 }
 
 .img-container {
