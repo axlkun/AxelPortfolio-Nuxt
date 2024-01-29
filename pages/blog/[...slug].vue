@@ -69,7 +69,7 @@
             </v-sheet>
 
             <v-sheet class="img-container">
-                <v-img :src="`${dominio}${article.imageUrl}`" alt="Imagen artículo" max-height="500" aspect-ratio="16/9"
+                <v-img :src="`${dominio}${article.imageUrl}`" :alt="article.alt_image" max-height="500" aspect-ratio="16/9"
                     cover></v-img>
             </v-sheet>
 
@@ -146,8 +146,8 @@ const loadData = async () => {
                 robots: 'index, follow',
                 title: () => "Axel Cruz | " + article.value.title,
                 author: 'Axel Cruz',
-                description: () => article.value.summary,
-                keywords: 'programación, fullstack developer, axel cruz, php, laravel, nuxt, vue, vuetify, mysql, sqlserver, startp, sideproject, solopreneur',
+                description: () => article.value.meta_description,
+                keywords: () => article.value.keywords,
 
                 ogTitle: 'Axel Cruz | Fullstack Developer',
                 ogDescription: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México, apasionado por el desarrollo de software de alto performance y excelente experiencia de usuario.',
