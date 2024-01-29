@@ -279,7 +279,7 @@ onMounted(() => {
 
     @media only screen and (min-width: 1024px) {
         flex-direction: row;
-        font-size: 20px;
+        font-size: 18px;
 
     }
 }
@@ -307,6 +307,7 @@ onMounted(() => {
 
 .project-info h3 {
     color: var(--primary-blue);
+    font-weight: bold;
 }
 
 .link {
@@ -318,7 +319,7 @@ onMounted(() => {
     margin-bottom: 60px;
 
     @media only screen and (min-width: 1024px) {
-        font-size: 20px;
+        font-size: 18px;
         width: 70%;
     }
 }
