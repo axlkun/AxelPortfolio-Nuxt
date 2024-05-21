@@ -18,7 +18,7 @@
                 </v-sheet>
                 <v-sheet class="buttons-container">
                     <a class="button" href="mailto:axelcruz.dev@gmail.com">Contacto</a>
-                    <a class="button" href="/Axel Andres Cruz Cordova - CV.pdf" target="_blank">Resume / CV</a>
+                    <!-- <a class="button" href="/Axel Andres Cruz Cordova - CV.pdf" target="_blank">Resume / CV</a> -->
                 </v-sheet>
             </v-sheet>
 
