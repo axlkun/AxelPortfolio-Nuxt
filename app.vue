@@ -3,7 +3,8 @@
 
     <myHeader></myHeader>
     <main>
-      <router-view :blogEntry="blogEntry"></router-view>
+      <!-- <router-view :blogEntry="blogEntry"></router-view> -->
+      <NuxtPage :blogEntry="blogEntry" />
     </main>
     <myFooter :blogEntry="blogEntry"></myFooter>
   </v-app>
