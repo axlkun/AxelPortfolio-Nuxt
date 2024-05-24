@@ -64,7 +64,7 @@ export default{
     align-items: center;
 
     @media only screen and (min-width: 1024px) {
-        min-height: 100vh;
+        min-height: 80vh;
     }
 }
 
