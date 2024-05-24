@@ -65,12 +65,12 @@
                             <h3>Rol</h3>
                             <p>Fullstack Developer</p>
                         </v-sheet>
-                        <v-sheet class="link-container">
+                        <!-- <v-sheet class="link-container">
                             <h3>Ver código</h3>
                             <a :href="project.repo_link ? project.repo_link : null">
                                 {{ project.repo_link ? project.repo_link : 'Repositorio privado' }}
                             </a>
-                        </v-sheet>
+                        </v-sheet> -->
                         <v-sheet class="link-container">
                             <h3>Visitar el sitio</h3>
                             <a :href="project.website_link ? project.website_link : null">
