@@ -116,7 +116,7 @@ export default {
     margin-bottom: 10px;
 
     @media only screen and (min-width: 1024px) {
-        font-size: 20px;
+        font-size: 18px;
     }
 }
 
@@ -125,16 +125,16 @@ export default {
     line-height: 1.2;
 
     @media only screen and (min-width: 1024px) {
-        font-size: 20px;
+        font-size: 18px;
     }
 }
 
 .project-type {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.2;
 
     @media only screen and (min-width: 1024px) {
-        font-size: 16px;
+        font-size: 14px;
     }
 }
 

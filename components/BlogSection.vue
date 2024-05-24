@@ -91,7 +91,7 @@ export default {
 
     @media only screen and (min-width: 1024px) {
 
-        font-size: 20px;
+        font-size: 18px;
         width: 93%;
     }
 }

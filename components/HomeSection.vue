@@ -127,7 +127,7 @@ export default {
     @media only screen and (min-width: 1024px) {
         flex-direction: row;
         justify-content: start;
-        font-size: 20px;
+        font-size: 18px;
         gap: 20px;
     }
 }

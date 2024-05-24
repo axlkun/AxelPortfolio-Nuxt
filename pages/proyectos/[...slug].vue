@@ -284,7 +284,7 @@ onMounted(() => {
 
     @media only screen and (min-width: 1024px) {
         flex-direction: row;
-        font-size: 20px;
+        font-size: 18px;
     }
 }
 

@@ -16,7 +16,7 @@
                         <div class="mt-1 mb-1 project-description text-visible">
                             {{ project.summary }}
                         </div>
-                        <div class="d-flex align-center">
+                        <div class="d-flex align-center pt-3">
                             <v-icon class="mdi mdi-domain" contain></v-icon>
 
                             <span class="ml-1 project-type">{{ project.company }}</span>
@@ -94,10 +94,10 @@ export default {
     overflow: hidden;
     white-space: initial;
     line-height: 1.2;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 
     @media only screen and (min-width: 1024px) {
-        font-size: 20px;
+        font-size: 18px;
     }
 }
 
@@ -107,17 +107,17 @@ export default {
     color: grey;
 
     @media only screen and (min-width: 1024px) {
-        font-size: 20px;
+        font-size: 18px;
     }
 }
 
 .project-type {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.2;
     color: grey;
 
     @media only screen and (min-width: 1024px) {
-        font-size: 16px;
+        font-size: 14px;
     }
 }
 

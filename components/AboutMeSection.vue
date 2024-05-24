@@ -250,7 +250,7 @@ export default {
 
     @media only screen and (min-width: 1024px) {
         width: 80%;
-        font-size: 20px;
+        font-size: 18px;
     }
 }
 
@@ -308,7 +308,7 @@ export default {
     font-size: 16px;
 
     @media only screen and (min-width: 768px) {
-        font-size: 20px;
+        font-size: 18px;
     }
 }
 

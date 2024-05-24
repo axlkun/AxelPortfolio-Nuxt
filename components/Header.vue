@@ -106,7 +106,7 @@ nav {
 }
 
 .logo p {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     color: var(--primary-blue);
 }
@@ -161,7 +161,7 @@ nav {
     cursor: pointer;
 
     @media only screen and (min-width: 1024px) {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     &:hover {

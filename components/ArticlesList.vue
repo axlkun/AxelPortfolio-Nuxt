@@ -115,7 +115,7 @@ export default {
     color: var(--primary-blue);
 
     @media only screen and (min-width: 1024px) {
-        font-size: 20px;
+        font-size: 18px;
     }
 }
 
@@ -123,7 +123,7 @@ export default {
     font-size: 16px;
 
     @media only screen and (min-width: 1024px) {
-        font-size: 20px;
+        font-size: 18px;
     }
 }
 
