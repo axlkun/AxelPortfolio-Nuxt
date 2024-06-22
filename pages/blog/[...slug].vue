@@ -95,7 +95,11 @@ import api from '../api';
 import articlesList from '../components/ArticlesList.vue';
 import contactSection from '../components/ContactSection.vue';
 import Prism from 'prismjs';
-// import 'prismjs/components/prism-javascript';
+
+import 'prismjs/components/prism-markup-templating';
+import 'prismjs/components/prism-php';
+import 'prismjs/components/prism-java';
+
 import 'prismjs/themes/prism-okaidia.css';
 import { ref, watch, onMounted, nextTick } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
@@ -204,6 +208,8 @@ watch(() => route.params.slug, () => {
 });
 
 onMounted(() => {
+    // Cargar lenguajes adicionales
+    //loadLanguages(['php','java']);
     loadData();
     console.log(Prism);
 });
