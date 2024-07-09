@@ -113,7 +113,7 @@ const items = ref([
         {
           title: 'Blog',
           disabled: false,
-          href: '/proyectos',
+          href: '/blog',
         },
         {
           title: 'Artículo',
