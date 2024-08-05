@@ -1,21 +1,13 @@
 <template>
-  <v-app id="app">
+  <v-app id="app" class="general-bg">
 
-    <myHeader></myHeader>
-    <main>
-      <!-- <router-view :blogEntry="blogEntry"></router-view> -->
       <NuxtPage :blogEntry="blogEntry" />
-    </main>
-    <myFooter :blogEntry="blogEntry"></myFooter>
+   
   </v-app>
 </template>
 
 <script setup>
 import api from './api';
-
-import myHeader from './components/Header.vue';
-import myFooter from './components/Footer.vue';
-
 
 const blogEntry = ref([]);
 
@@ -35,4 +27,8 @@ onMounted(() => {
 
 </script>
 
-<style scoped></style>
+<style scoped>
+.general-bg{
+  background-color: var(--primary-background);
+}
+</style>
