@@ -1,4 +1,5 @@
 <template>
+    <myHeader></myHeader>
     <v-sheet class="projects">
         <v-sheet class="container">
             <v-sheet class="title">
@@ -23,12 +24,16 @@
 
         <contactSection></contactSection>
     </v-sheet>
+
+    <myFooter></myFooter>
 </template>
 
 <script setup>
 import api from '../api';
 import projectList from '../components/ProjectsList.vue';
 import contactSection from '../components/ContactSection.vue';
+import myHeader from '../components/Header.vue';
+import myFooter from '../components/Footer.vue';
 
 const projects = ref([]);
 const loading = ref(true);

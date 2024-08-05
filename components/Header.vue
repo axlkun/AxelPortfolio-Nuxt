@@ -3,7 +3,7 @@
         <nav>
 
             <div class="container-bar">
-                <a class="logo" href="/">
+                <a class="logo" href="/home">
                     <div>
                         <img :src="logo" alt="Icono" />
                     </div>
@@ -17,24 +17,18 @@
                     <v-icon :icon="menuOpen ? 'mdi mdi-close-box' : 'mdi mdi-menu'"></v-icon>
                 </button>
 
-                <!-- <div class="hide-icon">
-                    <v-icon :icon="menuOpen ? 'mdi mdi-close-box' : 'mdi mdi-menu'" @click="toggleMenu"></v-icon>
-                </div> -->
             </div>
 
             <div class="container-menu" :class="{ 'hide': !menuOpen }">
                 <ul class="menu desktop-menu">
-                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/home">Inicio</a></li>
                     <li><a @click="redirectSection('aboutme')">Sobre mi</a></li>
                     <li><a @click="redirectSection('services')">Servicios</a></li>
                     <li><a href="/proyectos">Proyectos</a></li>
-                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/blog?ref=home">Blog</a></li>
                     <li><a @click="redirectSection('contact')" class="button">Contacto</a></li>
                 </ul>
 
-                <div class="hide-icon">
-                    <p>axelcruz.dev@gmail.com</p>
-                </div>
             </div>
 
         </nav>

@@ -7,23 +7,22 @@
         <p>Navegación</p>
 
         <ul>
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/#aboutme">Sobre mi</a></li>
-          <li><a href="/#services">Servicios</a></li>
+          <li><a href="/home">Inicio</a></li>
+          <li><a href="/home/#aboutme">Sobre mi</a></li>
+          <li><a href="/home/#services">Servicios</a></li>
           <li><a href="/proyectos">Proyectos</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/#contact">Contacto</a></li>
+          <li><a href="/blog?ref=home">Blog</a></li>
+          <li><a href="/home/#contact">Contacto</a></li>
         </ul>
       </div>
 
-      <div class="section">
+      <!-- <div class="section">
         <p>Últimos artículos</p>
 
         <ul>
-          <!-- <li v-for="article in blogEntry"><a @click="redirectTo('articleDetail', { slug: article.slug })">{{article.title}}</a></li> -->
           <li v-for="article in blogEntry"><a :href="'/blog/' + article.slug">{{ article.title }}</a></li>
         </ul>
-      </div>
+      </div> -->
 
       <div class="section">
         <p>Contacto</p>
@@ -55,7 +54,7 @@
 
 <script setup>
 
-const props = defineProps(['blogEntry']);
+//const props = defineProps(['blogEntry']);
 
 </script>
 

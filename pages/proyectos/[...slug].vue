@@ -1,4 +1,5 @@
 <template>
+    <myHeader></myHeader>
     <v-sheet class="project">
 
         <v-sheet v-if="loading" class="skeleton">
@@ -89,12 +90,15 @@
         <contactSection></contactSection>
 
     </v-sheet>
+    <myFooter></myFooter>
 </template>
 
 <script setup>
 import api from '../api';
 import relatedProjects from '../components/RelatedProjects.vue';
 import contactSection from '../components/ContactSection.vue';
+import myHeader from '../components/Header.vue';
+import myFooter from '../components/Footer.vue';
 import { ref, watch, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
@@ -102,7 +106,7 @@ const items = ref([
     {
           title: 'Inicio',
           disabled: false,
-          href: '/',
+          href: '/home',
         },
         {
           title: 'Proyectos',

@@ -1,4 +1,7 @@
 <template>
+    <myHeader v-if="refValue == 'home'"></myHeader>
+    <myBlogHeader v-else></myBlogHeader>
+
     <v-sheet class="project">
 
         <v-sheet v-if="loading" class="skeleton">
@@ -85,9 +88,12 @@
 
         <articlesList :blogEntry="articles"></articlesList>
 
-        <contactSection></contactSection>
+        <contactSection v-if="refValue == 'home'"></contactSection>
 
     </v-sheet>
+
+    <myFooter v-if="refValue == 'home'"></myFooter>
+    <myBlogFooter v-else></myBlogFooter>
 </template>
 
 <script setup>
@@ -101,11 +107,46 @@ import 'prismjs/components/prism-php';
 import 'prismjs/components/prism-java';
 
 import 'prismjs/themes/prism-okaidia.css';
-import { ref, watch, onMounted, nextTick } from 'vue';
+import { ref, watch, onMounted, nextTick, computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
-const items = ref([
-    {
+import myBlogHeader from '../components/blog/BlogHeader.vue';
+import myBlogFooter from '../components/blog/BlogFooter.vue';
+import myHeader from '../components/Header.vue';
+import myFooter from '../components/Footer.vue';
+
+const route = useRoute();
+const router = useRouter();
+const slug = ref(route.params.slug);
+const dominio = api.defaults.baseURL;
+const article = ref(null);
+const articles = ref(null);
+const loading = ref(true);
+
+// Obtener parámetros de consulta
+const query = route.query;
+const refValue = query.ref; 
+
+const items = computed(() => {
+  return refValue === 'home'
+    ? [
+        {
+          title: 'Inicio',
+          disabled: false,
+          href: '/home',
+        },
+        {
+          title: 'Blog',
+          disabled: false,
+          href: '/blog?ref=home',
+        },
+        {
+          title: 'Artículo',
+          disabled: true,
+        },
+      ]
+    : [
+        {
           title: 'Inicio',
           disabled: false,
           href: '/',
@@ -119,15 +160,9 @@ const items = ref([
           title: 'Artículo',
           disabled: true,
         },
-])
+      ];
+});
 
-const route = useRoute();
-const router = useRouter();
-const slug = ref(route.params.slug);
-const dominio = api.defaults.baseURL;
-const article = ref(null);
-const articles = ref(null);
-const loading = ref(true);
 
 
 const highlightCode = () => {

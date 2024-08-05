@@ -1,4 +1,7 @@
 <template>
+    <myHeader v-if="refValue == 'home'"></myHeader>
+    <myBlogHeader v-else></myBlogHeader>
+    
     <v-sheet class="projects">
         <v-sheet class="container">
             <v-sheet class="title">
@@ -19,19 +22,36 @@
             </template>
         </v-sheet>
 
-        <articlestList :blogEntry="blogEntry" v-else></articlestList>
+        <articlestList :blogEntry="blogEntry" :home="isHome" v-else></articlestList>
 
-        <contactSection></contactSection>
+        <contactSection v-if="refValue == 'home'"></contactSection>
+
     </v-sheet>
+    
+    <myFooter v-if="refValue == 'home'"></myFooter>
+    <myBlogFooter v-else></myBlogFooter>
 </template>
 
 <script setup>
 import api from '../api';
 import articlestList from '../components/ArticlesList.vue';
 import contactSection from '../components/ContactSection.vue';
+import myBlogHeader from '../components/blog/BlogHeader.vue';
+import myBlogFooter from '../components/blog/BlogFooter.vue';
+import myHeader from '../components/Header.vue';
+import myFooter from '../components/Footer.vue';
+import { useRoute } from 'vue-router';
 
 const blogEntry = ref([]);
 const loading = ref(true);
+const route = useRoute();
+
+// Obtener parámetros de consulta
+const query = route.query;
+const refValue = query.ref; // Obtén el valor del parámetro "ref"
+
+// Determinar si home es true o false
+const isHome = computed(() => refValue === 'home');
 
 const getArticles = async () => {
         try {

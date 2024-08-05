@@ -1,46 +1,52 @@
 <template>
-    <v-sheet>
-        <homeSection></homeSection>
-        <aboutMeSection></aboutMeSection>
-        <servicesSection></servicesSection>
-        <workSection v-if="blogEntry && blogEntry.length > 0"></workSection>
-        <blogSection v-if="blogEntry && blogEntry.length > 0" :blogEntry="blogEntry"></blogSection>
-        <contactSection></contactSection>
-    </v-sheet>
+
+    <div>
+        <myBlogHeader></myBlogHeader>
+
+        <div class="main-container">
+
+            <myHeroTitle></myHeroTitle>
+
+            <myHeroArticles></myHeroArticles>
+
+            <myCategories></myCategories>
+
+            <ProgramacionSection></ProgramacionSection>
+
+            <IngenieriaSection></IngenieriaSection>
+
+            <StartupSection></StartupSection>
+
+            <myContact></myContact>
+            
+        </div>
+
+        <myBlogFooter></myBlogFooter>
+    </div>
 </template>
 
 <script setup>
-import homeSection from '../components/HomeSection.vue';
-import aboutMeSection from '../components/AboutMeSection.vue';
-import servicesSection from '../components/ServicesSection.vue';
-import workSection from '../components/WorkSection.vue';
-import blogSection from '../components/BlogSection.vue';
-import contactSection from '../components/ContactSection.vue';
 
-const props = defineProps(['blogEntry']);
-
-useSeoMeta({
-
-robots: 'index, follow',
-
-title: 'Axel Cruz | Fullstack Developer',
-author: 'Axel Cruz',
-description: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México, apasionado por el desarrollo de software de alto performance y excelente experiencia de usuario.',
-keywords: 'programación, fullstack developer, axel cruz, php, laravel, nuxt, vue, vuetify, mysql, sqlserver, startp, sideproject, solopreneur',
-
-ogTitle: 'Axel Cruz | Fullstack Developer',
-ogDescription: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México, apasionado por el desarrollo de software de alto performance y excelente experiencia de usuario.',
-ogImage: 'https://www.axelcruz.space/og-image.png',
-ogUrl: 'https://www.axelcruz.space/',
-ogType: 'website',
-
-twitterCreator: '@Axlkun',
-twitterImage: 'https://www.axelcruz.space/og-image.png',
-twitterCard: 'summary_large_image',
-twitterTitle: 'Axel Cruz | Fullstack Developer',
-twitterDescription: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México, apasionado por el desarrollo de software de alto performance y excelente experiencia de usuario.'
-})
+import myBlogHeader from '../components/blog/BlogHeader.vue';
+import myHeroTitle from '../components/blog/HeroTitle.vue';
+import myHeroArticles from '../components/blog/HeroArticles.vue';
+import myCategories from '../components/blog/Categories.vue';
+import ProgramacionSection from '../components/blog/ProgramacionSection.vue';
+import IngenieriaSection from '../components/blog/IngenieriaSection.vue';
+import StartupSection from '../components/blog/StartupSection.vue';
+import myContact from '../components/blog/Contact.vue';
+import myBlogFooter from '../components/blog/BlogFooter.vue';
 
 </script>
 
-<style scoped></style>
+<style scoped>
+.main-container {
+    
+    width: 120rem;
+    max-width: 90%;
+    margin: 15px auto;
+    background-color: var(--primary-background);
+}
+
+
+</style>

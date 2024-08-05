@@ -15,10 +15,10 @@
 
         </v-sheet>
        
-        <articlesList :blogEntry="blogEntry"></articlesList>
+        <articlesList :blogEntry="blogEntry" home="true"></articlesList>
 
         <v-sheet class="button-container">
-            <a href="/blog" class="button">Visitar el blog <span class="mdi mdi-arrow-right-thin"></span></a>
+            <a href="/blog?ref=home" class="button">Visitar el blog <span class="mdi mdi-arrow-right-thin"></span></a>
         </v-sheet>
 
     </v-sheet>

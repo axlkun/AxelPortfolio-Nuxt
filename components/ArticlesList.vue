@@ -1,6 +1,6 @@
 <template>
     <v-sheet class="articles">
-        <a v-for="article in blogEntry" :href="'/blog/' + article.slug">
+        <a v-for="article in blogEntry" :href="generateHref(article.slug)">
         <v-card  class="article-entry" :elevated="0"
             variant="text">
             <v-img :src="`${dominio}${article.imageUrl}`" cover :aspect-ratio="16 / 9">
@@ -29,22 +29,22 @@
     </v-sheet>
 </template>
 
-<script>
+<script setup>
+import { defineProps } from 'vue';
 import imgBlog from '../assets/logo-axel.svg';
 import api from '../api';
 
-export default {
+// Definir las propiedades
+const props = defineProps({
+    blogEntry: Array,
+    home: Boolean
+});
 
-    name: 'blogSection',
+const dominio = api.defaults.baseURL;
 
-    props: ['blogEntry'],
-
-    data: () => ({
-        imgBlog,
-        dominio: api.defaults.baseURL
-    })
-
-}
+const generateHref = (slug) => {
+    return props.home ? `/blog/${slug}?ref=home` : `/blog/${slug}`;
+};
 </script>
 
 <style scoped>
