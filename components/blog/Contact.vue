@@ -1,0 +1,37 @@
+<template>
+    <v-parallax src="/assets/bg-image4.svg" height="400" color="grey" class="mb-10 mt-10">
+        <div class="d-flex flex-column fill-height justify-center align-center text-white text-center">
+            <h2 class="text-h4 font-weight-thin mb-4">
+                Contacto
+            </h2>
+            <h4 class="subheading">
+                ¿Tienes alguna pregunta, inquietud o simplemente
+                quieres decir hola? No dudes en ponerte en contacto.
+            </h4>
+            <v-btn prepend-icon="mdi mdi-email-arrow-right-outline" variant="elevated" href="mailto:axel.17cruz@gmail.com"
+                class="ma-5" color="#0801ff">
+                Escribir un correo
+            </v-btn>
+        </div>
+    </v-parallax>
+</template>
+    
+<script>
+
+</script>
+    
+<style scoped>
+
+.custom-sheet-size {
+    /* adapta la sección de contacto*/
+    /* vista movil */
+    width: 100%;
+    height: auto;
+
+    @media only screen and (min-width: 960px) {
+        width: 40%;
+    }
+}
+
+
+</style>
