@@ -4,8 +4,6 @@ export function scrollToSection(targetSection) {
       window.location.href = '/proyectos';
     } else if (targetSection === 'blog') {
       window.location.href = '/blog';
-    }else if(targetSection == 'home'){
-      window.location.href = '/';
     }
      else {
       const section = document.getElementById(targetSection);
@@ -29,7 +27,7 @@ export function scrollToSection(targetSection) {
     
       } else {
         // Si el elemento no se encuentra en la página actual, realiza una redirección a la página que contiene el elemento.
-        window.location.href = `/#${targetSection}`;
+        window.location.href = `/home/#${targetSection}`;
       }
     }
   
