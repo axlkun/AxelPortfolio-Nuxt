@@ -13,27 +13,56 @@
             </v-btn>
         </div>
     </div>
-    <div class="programacion-articles-container">
-        <ArticleCardSecondary imgBlog="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" date="18 Junio 2024"
-        title="Toppsr western road trips" description="1,000 miles of wonder 1,000 miles of wonder"
-        category="Programación" />
+    <div class="programacion-articles-container" v-if="loading">
 
-        <ArticleCardSecondary imgBlog="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" date="18 Junio 2024"
-        title="Toppsr western road trips" description="1,000 miles of wonder 1,000 miles of wonder"
-        category="Programación" />
+        <SkeletonArticleCardSecondary></SkeletonArticleCardSecondary>
+        <SkeletonArticleCardSecondary></SkeletonArticleCardSecondary>
+        <SkeletonArticleCardSecondary></SkeletonArticleCardSecondary>
+        <SkeletonArticleCardSecondary></SkeletonArticleCardSecondary>
 
-        <ArticleCardSecondary imgBlog="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" date="18 Junio 2024"
-        title="Toppsr western road trips" description="1,000 miles of wonder 1,000 miles of wonder"
-        category="Programación" />
+    </div>
+    <div class="programacion-articles-container" v-else>
 
-        <ArticleCardSecondary imgBlog="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" date="18 Junio 2024"
-        title="Toppsr western road trips" description="1,000 miles of wonder 1,000 miles of wonder"
-        category="Programación" />
+        <ArticleCardSecondary v-for="article in blogEntry" :href="getHref(article.slug)" :imgSrc="getImgSrc(article.imageUrl)" :date="article.created_date"
+        :title="article.title" :description="article.summary"
+        :categories="article.categories" />
+
     </div>
 </template>
 
 <script setup>
 import ArticleCardSecondary from './ArticleCardSecondary.vue';
+import SkeletonArticleCardSecondary from './SkeletonArticleCardSecondary.vue';
+import api from '../../api.js';
+
+const dominio = api.defaults.baseURL;
+
+const getHref = (slug) => `/blog/${slug}`;
+const getImgSrc = (imageUrl) => `${dominio}${imageUrl}`;
+
+// const { data: blogEntry, pending: loading } = await useAsyncData('programacion-articles', () =>
+//   api.get('/api/articles/filter?seccion=programacion&limit=4').then(response => response.data.data)
+// );
+
+const blogEntry = ref([]);
+const loading = ref(true);
+
+const getArticles = async () => {
+  api.get('/api/articles/filter?seccion=programacion&limit=4')
+    .then(response => {
+      blogEntry.value = response.data.data;
+
+      loading.value = false;
+    })
+    .catch(error => {
+      
+      loading.value = false;
+    });
+}
+
+onMounted(() => {
+  getArticles();
+})
 </script>
 
 <style scoped>
