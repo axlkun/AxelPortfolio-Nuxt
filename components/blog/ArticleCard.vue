@@ -14,9 +14,9 @@
           </v-sheet>
     
           <v-card-text class="d-flex flex-wrap pa-0">
-            <v-chip class="mr-2 mb-2">
-              {{ category }}
-            </v-chip>
+            <v-chip v-for="category in categories" class="mr-2 mb-2">
+              {{ category.name }}
+          </v-chip>
           </v-card-text>
         </v-sheet>
       </v-card>
@@ -28,32 +28,22 @@ import imgBlog from '../../assets/logo-axel.svg';
 
 const props = defineProps({
   href: {
-    type: String,
-    default: '/'
+    type: String
   },
   imgSrc: {
-    type: String,
-    default: 'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg'
-  },
-  imgBlog: {
-    type: String,
-    default: ''
+    type: String
   },
   date: {
-    type: String,
-    default: '18 Junio 2024'
+    type: String
   },
   title: {
-    type: String,
-    default: 'Top western road trips'
+    type: String
   },
   description: {
-    type: String,
-    default: '1,000 miles of wonder 1,000 miles of wonder'
+    type: String
   },
-  category: {
-    type: String,
-    default: 'Programación'
+  categories: {
+    type: Array
   }
 });
 </script>

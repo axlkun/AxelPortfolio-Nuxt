@@ -1,8 +1,12 @@
 <template>
     <v-card class="article-entry" :elevated="0" variant="text" :href="href">
-        <div class="d-flex justify-between">
-            <v-img :src="imgSrc" min-width="160" cover></v-img>
-            <div class="pa-2">
+        <div class="d-flex">
+            <v-img
+                :src="imgSrc"
+                class="article-image"
+                cover
+            ></v-img>
+            <div class="article-content pa-2">
                 <div class="img-container">
                     <v-img class="img" :src="imgBlog"></v-img>
                     <p>{{ date }}</p>
@@ -14,12 +18,11 @@
                 </div>
 
                 <div class="d-flex flex-wrap pa-0">
-                    <v-chip class="mr-2 mb-2">
-                        {{ category }}
+                    <v-chip v-for="category in categories" :key="category.id" class="mr-2 mb-2">
+                        {{ category.name }}
                     </v-chip>
                 </div>
             </div>
-
         </div>
     </v-card>
 </template>
@@ -30,37 +33,70 @@ import imgBlog from '../../assets/logo-axel.svg';
 
 const props = defineProps({
     href: {
-        type: String,
-        default: '/'
+        type: String
     },
     imgSrc: {
-        type: String,
-        default: 'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg'
+        type: String
     },
     imgBlog: {
-        type: String,
-        default: ''
+        type: String
     },
     date: {
-        type: String,
-        default: '18 Junio 2024'
+        type: String
     },
     title: {
-        type: String,
-        default: 'Top western road trips'
+        type: String
     },
     description: {
         type: String,
-        default: '1,000 miles of wonder 1,000 miles of wonder'
+
     },
-    category: {
-        type: String,
-        default: 'Programación'
+    categories: {
+        type: Array
     }
 });
 </script>
 
 <style scoped>
+.article-entry {
+    display: flex;
+    flex-direction: row;
+}
+
+.article-image {
+    width: 33.33%; /* Ocupa 1/3 del contenedor */
+    height: auto;
+}
+
+.article-content {
+    width: 66.67%; /* Ocupa 2/3 del contenedor */
+    padding: 16px; /* Ajusta el padding según sea necesario */
+}
+
+.img-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px; /* Espaciado entre la imagen y el texto */
+}
+
+.img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 8px; /* Espaciado debajo de la imagen */
+}
+
+.article-title {
+    margin-bottom: 16px;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-flex.flex-wrap {
+    flex-wrap: wrap;
+}
+
 .article-entry {
     padding-bottom: 10px;
     display: flex;
