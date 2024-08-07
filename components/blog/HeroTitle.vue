@@ -14,13 +14,13 @@
           <p class="text-h6 font-weight-bold text-md-h5 mb-2">Explora por:</p>
         </div>
         <div class="d-flex ga-3 flex-wrap">
-          <v-chip prepend-icon="mdi-code-braces" href="/" size="large" color="#0801ff">
+          <v-chip prepend-icon="mdi-code-braces" href="/programacion" size="large" color="#0801ff">
             Programación
           </v-chip>
-          <v-chip prepend-icon="mdi-brightness-5" href="/" size="large" color="#0801ff">
+          <v-chip prepend-icon="mdi-brightness-5" href="/ingenieria-de-software" size="large" color="#0801ff">
             Ingeniería
           </v-chip>
-          <v-chip prepend-icon="mdi-cash-multiple" href="/" size="large" color="#0801ff">
+          <v-chip prepend-icon="mdi-cash-multiple" href="/startups-sideprojects" size="large" color="#0801ff">
             Startups
           </v-chip>
         </div>

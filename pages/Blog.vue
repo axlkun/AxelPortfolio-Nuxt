@@ -6,6 +6,8 @@
         <v-sheet class="container">
             <v-sheet class="title">
                 <h1>Blog</h1>
+                <p>Descubre todo tipo de artículos relacionados a la Programación, <br> Ingeniería de Software y Startups!
+                </p>
             </v-sheet>
         </v-sheet>
 
@@ -110,18 +112,23 @@ twitterDescription: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales 
 }
 
 .title {
-    font-size: 35px;
-    font-weight: 400;
-    margin: 0 auto;
+    
+    margin: 15px auto;
     background: transparent;
     color: var(--primary-blue);
     text-align: center;
+}
+
+.title h1{
+    font-size: 35px;
+    font-weight: 700;
 
     @media only screen and (min-width: 1024px) {
         font-size: 55px;
-        font-weight: 400;
-        text-align: start;
     }
+}
 
+.title p{
+    color: black;
 }
 </style>
