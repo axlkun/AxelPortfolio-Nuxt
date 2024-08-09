@@ -43,6 +43,28 @@
 import myBlogHeader from '../components/blog/BlogHeader.vue';
 import myBlogFooter from '../components/blog/BlogFooter.vue';
 
+useSeoMeta({
+  robots: 'index, follow',
+  title: 'Axel Cruz | Acerca de',
+  author: 'Axel Cruz',
+  description: 'Hola! bienvenido a AxelCruz.space, un blog en el que puedes aprender sobre programación, encontrar guías sobre la Ingeniería de Software y experiencias sobre el desarrollo de SideProjects.',
+  keywords: 'programación, fullstack developer, axel cruz, php, laravel, nuxt, vue, vuetify, mysql, sqlserver, startp, sideproject, solopreneur',
+  
+  ogTitle: 'Axel Cruz | Acerca de',
+  ogDescription: 'Hola! bienvenido a AxelCruz.space, un blog en el que puedes aprender sobre programación, encontrar guías sobre la Ingeniería de Software y experiencias sobre el desarrollo de SideProjects.',
+  ogImage: 'https://www.axelcruz.space/og-image.png',
+  ogUrl: 'https://www.axelcruz.space/acerca-de',
+  ogType: 'website',
+  ogLocale: 'es_ES',
+
+  twitterCreator: '@Axlkun',
+  twitterImage: 'https://www.axelcruz.space/og-image.png',
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Axel Cruz | Acerca de',
+  twitterDescription: 'Hola! bienvenido a AxelCruz.space, un blog en el que puedes aprender sobre programación, encontrar guías sobre la Ingeniería de Software y experiencias sobre el desarrollo de SideProjects.',
+  
+});
+
 </script>
 
 <style scoped>

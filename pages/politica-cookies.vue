@@ -66,6 +66,13 @@
 <script setup>
 import myBlogHeader from '../components/blog/BlogHeader.vue';
 import myBlogFooter from '../components/blog/BlogFooter.vue';
+
+useSeoMeta({
+    robots: 'noindex, follow',
+    title: 'Axel Cruz | Política de Cookies',
+    description: 'Consulta nuestra Política de Cookies para entender cuales son sus funcionalidades y finalidad en el sitio.'
+
+});
 </script>
 
 <style scoped>

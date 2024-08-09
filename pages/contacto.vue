@@ -24,6 +24,28 @@ import myBlogHeader from '../components/blog/BlogHeader.vue';
 import myContact from '../components/blog/Contact.vue';
 import myBlogFooter from '../components/blog/BlogFooter.vue';
 
+useSeoMeta({
+
+robots: 'index, follow',
+
+title: 'Axel Cruz | Contacto',
+author: 'Axel Cruz',
+description: 'Hola! bienvenido a AxelCruz.space. Tienes preguntas? ponte en contacto y responderemos a la brevedad. Gracias por visitarnos!',
+keywords: 'programación, fullstack developer, axel cruz, php, laravel, nuxt, vue, vuetify, mysql, sqlserver, startp, sideproject, solopreneur',
+
+ogTitle: 'Axel Cruz | Contacto',
+ogDescription: 'Hola! bienvenido a AxelCruz.space. Tienes preguntas? ponte en contacto y responderemos a la brevedad. Gracias por visitarnos!',
+ogImage: 'https://www.axelcruz.space/og-image.png',
+ogUrl: 'https://www.axelcruz.space/contacto',
+ogType: 'website',
+
+twitterCreator: '@Axlkun',
+twitterImage: 'https://www.axelcruz.space/og-image.png',
+twitterCard: 'summary_large_image',
+twitterTitle: 'Axel Cruz | Contacto',
+twitterDescription: 'Hola! bienvenido a AxelCruz.space. Tienes preguntas? ponte en contacto y responderemos a la brevedad. Gracias por visitarnos!'
+})
+
 </script>
 
 <style scoped>

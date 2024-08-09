@@ -27,21 +27,21 @@ useSeoMeta({
 
 robots: 'index, follow',
 
-title: 'Axel Cruz | Fullstack Developer',
+title: 'Axel Cruz | Full Stack Developer',
 author: 'Axel Cruz',
 description: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México, apasionado por el desarrollo de software de alto performance y excelente experiencia de usuario.',
 keywords: 'programación, fullstack developer, axel cruz, php, laravel, nuxt, vue, vuetify, mysql, sqlserver, startp, sideproject, solopreneur',
 
-ogTitle: 'Axel Cruz | Fullstack Developer',
+ogTitle: 'Axel Cruz | Full Stack Developer',
 ogDescription: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México, apasionado por el desarrollo de software de alto performance y excelente experiencia de usuario.',
 ogImage: 'https://www.axelcruz.space/og-image.png',
-ogUrl: 'https://www.axelcruz.space/',
+ogUrl: 'https://www.axelcruz.space/home',
 ogType: 'website',
 
 twitterCreator: '@Axlkun',
 twitterImage: 'https://www.axelcruz.space/og-image.png',
 twitterCard: 'summary_large_image',
-twitterTitle: 'Axel Cruz | Fullstack Developer',
+twitterTitle: 'Axel Cruz | Full Stack Developer',
 twitterDescription: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México, apasionado por el desarrollo de software de alto performance y excelente experiencia de usuario.'
 })
 

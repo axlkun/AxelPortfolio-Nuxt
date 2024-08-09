@@ -67,6 +67,12 @@
 <script setup>
 import myBlogHeader from '../components/blog/BlogHeader.vue';
 import myBlogFooter from '../components/blog/BlogFooter.vue';
+
+useSeoMeta({
+  robots: 'noindex, follow',
+  title: 'Axel Cruz | Política de Privacidad',
+  description: 'Consulta nuestra política de privacidad para entender cómo manejamos tus datos personales.'
+});
 </script>
 
 <style scoped>

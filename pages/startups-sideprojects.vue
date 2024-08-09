@@ -81,22 +81,22 @@ useSeoMeta({
 
 robots: 'index, follow',
 
-title: 'Axel Cruz | Artículos de Startups y SideProjects',
+title: 'Axel Cruz | Artículos de SideProjects',
 author: 'Axel Cruz',
-description: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México. En este blog puedes encontrar artículos relacionados con el desarrollo de software, startups, noticias de tecnología y mucho más.',
+description: 'Hola! bienvenido a AxelCruz.space, un blog en el que puedes aprender sobre programación, encontrar guías sobre Ingeniería de Software y experiencias en el desarrollo de SideProjects.',
 keywords: 'programación, fullstack developer, axel cruz, php, laravel, nuxt, vue, vuetify, mysql, sqlserver, startp, sideproject, solopreneur',
 
-ogTitle: 'Axel Cruz | Fullstack Developer',
-ogDescription: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México, apasionado por el desarrollo de software de alto performance y excelente experiencia de usuario.',
+ogTitle: 'Axel Cruz | Artículos de SideProjects',
+ogDescription: 'Hola! bienvenido a AxelCruz.space, un blog en el que puedes aprender sobre programación, encontrar guías sobre Ingeniería de Software y experiencias en el desarrollo de SideProjects.',
 ogImage: 'https://www.axelcruz.space/og-image.png',
-ogUrl: 'https://www.axelcruz.space/',
+ogUrl: 'https://www.axelcruz.space/startups-sideprojects',
 ogType: 'website',
 
 twitterCreator: '@Axlkun',
 twitterImage: 'https://www.axelcruz.space/og-image.png',
 twitterCard: 'summary_large_image',
-twitterTitle: 'Axel Cruz | Blog',
-twitterDescription: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México. En este blog puedes encontrar artículos relacionados con el desarrollo de software, startups, noticias de tecnología y mucho más.'
+twitterTitle: 'Axel Cruz | Artículos de SideProjects',
+twitterDescription: 'Hola! bienvenido a AxelCruz.space, un blog en el que puedes aprender sobre programación, encontrar guías sobre Ingeniería de Software y experiencias en el desarrollo de SideProjects.'
 })
 </script>
 

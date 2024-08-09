@@ -188,10 +188,10 @@ const loadData = async () => {
                 description: () => article.value.meta_description,
                 keywords: () => article.value.keywords,
 
-                ogTitle: 'Axel Cruz | Fullstack Developer',
-                ogDescription: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México, apasionado por el desarrollo de software de alto performance y excelente experiencia de usuario.',
-                ogImage: 'https://www.axelcruz.space/og-image.png',
-                ogUrl: 'https://www.axelcruz.space/',
+                ogTitle: () => "Axel Cruz | " + article.value.title,
+                ogDescription: () => article.value.meta_description,
+                ogImage: () => dominio + article.value.imageUrl,
+                ogUrl: () => dominio + "/blog/" + article.value.slug,
                 ogType: 'website',
 
                 twitterCreator: '@Axlkun',

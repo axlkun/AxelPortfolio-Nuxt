@@ -104,19 +104,19 @@ import { useRoute, useRouter } from 'vue-router';
 
 const items = ref([
     {
-          title: 'Inicio',
-          disabled: false,
-          href: '/home',
-        },
-        {
-          title: 'Proyectos',
-          disabled: false,
-          href: '/proyectos',
-        },
-        {
-          title: 'Proyecto',
-          disabled: true,
-        },
+        title: 'Inicio',
+        disabled: false,
+        href: '/home',
+    },
+    {
+        title: 'Proyectos',
+        disabled: false,
+        href: '/proyectos',
+    },
+    {
+        title: 'Proyecto',
+        disabled: true,
+    },
 ])
 
 const route = useRoute();
@@ -141,13 +141,13 @@ const loadData = async () => {
                 robots: 'index, follow',
                 title: () => "Axel Cruz | " + project.value.title,
                 author: 'Axel Cruz',
-                description: () => project.value.summary,
-                keywords: 'programación, fullstack developer, axel cruz, php, laravel, nuxt, vue, vuetify, mysql, sqlserver, startp, sideproject, solopreneur',
+                description: () => project.value.meta_description,
+                keywords: () => project.value.keywords,
 
-                ogTitle: 'Axel Cruz | Fullstack Developer',
-                ogDescription: 'Hola! soy Axel Cruz, Ingeniero en Sistemas Computacionales y Programador en México, apasionado por el desarrollo de software de alto performance y excelente experiencia de usuario.',
-                ogImage: 'https://www.axelcruz.space/og-image.png',
-                ogUrl: 'https://www.axelcruz.space/',
+                ogTitle: () => "Axel Cruz | " + project.value.title,
+                ogDescription: () => project.value.meta_description,
+                ogImage: () => dominio + project.value.imageUrl,
+                ogUrl: () => dominio + "/proyectos/" + project.value.slug,
                 ogType: 'website',
 
                 twitterCreator: '@Axlkun',
