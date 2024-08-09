@@ -7,7 +7,7 @@
             <p>Artículos recientes</p>
         </div>
         <div>
-            <v-btn variant="tonal" class="mt-5" color="#0801ff">
+            <v-btn variant="tonal" class="mt-5" color="#0801ff" href="/programacion">
                 Ver todos los articulos
                 <v-icon right>mdi-chevron-right</v-icon>
             </v-btn>
