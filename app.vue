@@ -1,29 +1,53 @@
 <template>
   <v-app id="app" class="general-bg">
 
-      <NuxtPage :blogEntry="blogEntry" />
+      <NuxtPage />
+
+      <ClientOnly fallback-tag="span" fallback="Loading comments...">
+
+        <div class="text-center">
+          <v-bottom-sheet v-model="sheet" v-if="!cookiesAccepted">
+            <v-card class="text-center">
+              <v-card-text>
+                <div class="text-caption">
+                  Utilizamos cookies para darte la mejor experiencia de usuario y entrega de publicidad. Al navegar por el sitio aceptas nuestra Política de Cookies. Puedes cambiar la configuración en tu navegador en cualquier momento.
+                </div>
+              </v-card-text>
+              <v-card-actions class="mx-auto">
+                <v-btn size="small" variant="text" color="#0801ff" href="/politica-cookies">
+                  Quiero saber más
+                </v-btn>
+                <v-btn size="x-small" variant="elevated" color="#0801ff" @click="acceptCookies">
+                  Aceptar
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-bottom-sheet>
+        </div>
+      </ClientOnly>
    
   </v-app>
 </template>
 
 <script setup>
-import api from './api';
+const sheet = ref(true);
+const cookiesAccepted = ref(false);
 
-const blogEntry = ref([]);
-
-const getArticles = async () => {
-  api.get('/api/articles?limit=6')
-    .then(response => {
-      blogEntry.value = response.data.data;
-    })
-    .catch(error => {
-      console.error('Error al hacer la solicitud GET:', error);
-    });
-}
+const acceptCookies = () => {
+  cookiesAccepted.value = true;
+  if (typeof localStorage !== 'undefined') {
+    localStorage.setItem('cookiesAccepted', 'true');
+  }
+};
 
 onMounted(() => {
-  getArticles();
-})
+  
+  if (typeof localStorage !== 'undefined') {
+    cookiesAccepted.value = localStorage.getItem('cookiesAccepted') === 'true';
+    sheet.value = !cookiesAccepted.value;
+  }
+});
+
 
 </script>
 
