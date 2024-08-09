@@ -297,7 +297,7 @@ onMounted(() => {
 
     @media only screen and (min-width: 1024px) {
         margin-bottom: 30px;
-        width: 70%;
+        width: 65%;
     }
 }
 
@@ -326,7 +326,7 @@ onMounted(() => {
 }
 
 .project-description {
-    flex: 70%;
+    flex: 65%;
 }
 
 .project-info {
@@ -361,7 +361,7 @@ onMounted(() => {
 
     @media only screen and (min-width: 1024px) {
         font-size: 18px;
-        width: 70%;
+        width: 65%;
     }
 }
 
