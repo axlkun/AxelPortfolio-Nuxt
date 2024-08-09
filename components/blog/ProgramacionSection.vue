@@ -15,15 +15,20 @@
     </div>
     <div class="programacion-articles-container" v-if="loading">
 
+        <!-- <SkeletonArticleCardSecondary></SkeletonArticleCardSecondary>
         <SkeletonArticleCardSecondary></SkeletonArticleCardSecondary>
         <SkeletonArticleCardSecondary></SkeletonArticleCardSecondary>
-        <SkeletonArticleCardSecondary></SkeletonArticleCardSecondary>
-        <SkeletonArticleCardSecondary></SkeletonArticleCardSecondary>
+        <SkeletonArticleCardSecondary></SkeletonArticleCardSecondary> -->
+
+        <v-skeleton-loader width="100%" type="image, article, chip" color="#f5f1f1"></v-skeleton-loader>
+        <v-skeleton-loader width="100%" type="image, article, chip" color="#f5f1f1"></v-skeleton-loader>
+        <v-skeleton-loader width="100%" type="image, article, chip" color="#f5f1f1"></v-skeleton-loader>
+        <v-skeleton-loader width="100%" type="image, article, chip" color="#f5f1f1"></v-skeleton-loader>
 
     </div>
     <div class="programacion-articles-container" v-else>
 
-        <ArticleCardSecondary v-for="article in blogEntry" :href="getHref(article.slug)" :imgSrc="getImgSrc(article.imageUrl)" :date="article.created_date"
+        <ArticleCard v-for="article in blogEntry" :href="getHref(article.slug)" :imgSrc="getImgSrc(article.imageUrl)" :date="article.created_date"
         :title="article.title" :description="article.summary"
         :categories="article.categories" />
 
@@ -31,8 +36,9 @@
 </template>
 
 <script setup>
-import ArticleCardSecondary from './ArticleCardSecondary.vue';
-import SkeletonArticleCardSecondary from './SkeletonArticleCardSecondary.vue';
+// import ArticleCardSecondary from './ArticleCardSecondary.vue';
+// import SkeletonArticleCardSecondary from './SkeletonArticleCardSecondary.vue';
+import ArticleCard from './ArticleCard.vue';
 import api from '../../api.js';
 
 const dominio = api.defaults.baseURL;
