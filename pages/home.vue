@@ -4,8 +4,8 @@
         <homeSection></homeSection>
         <aboutMeSection></aboutMeSection>
         <servicesSection></servicesSection>
-        <workSection v-if="blogEntry && blogEntry.length > 0"></workSection>
-        <blogSection v-if="blogEntry && blogEntry.length > 0" :blogEntry="blogEntry"></blogSection>
+        <workSection></workSection>
+        <blogSection></blogSection>
         <contactSection></contactSection>
         <myFooter></myFooter>
     </div>

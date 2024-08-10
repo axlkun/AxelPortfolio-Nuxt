@@ -24,19 +24,29 @@
     </v-sheet>
 </template>
 
-<script>
+<script setup>
 import articlesList from './ArticlesList.vue';
+import { ref, onMounted } from 'vue';
+import api from '../api';
 
-export default {
+// Define la referencia para los proyectos
+const blogEntry = ref([]);
 
-    name: 'blogSection',
+// Función para obtener los proyectos
+const getArticles = async () => {
+  try {
+    const response = await api.get('/api/articles?limit=6');
+    blogEntry.value = response.data.data;
+  } catch (error) {
+    console.error('Error al hacer la solicitud GET:', error);
+  }
+};
 
-    props: ['blogEntry'],
+// Llama a getProjects cuando el componente se monta
+onMounted(() => {
+  getArticles();
+});
 
-    components: {
-        articlesList
-    }
-}
 </script>
 
 <style scoped>

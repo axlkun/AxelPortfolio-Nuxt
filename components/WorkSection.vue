@@ -12,41 +12,28 @@
     </v-sheet>
 </template>
 
-<script>
+<script setup>
+import { ref, onMounted } from 'vue';
 import api from '../api';
-import projectList from './ProjectsList.vue';
+import ProjectList from './ProjectsList.vue';
 
-export default {
+// Define la referencia para los proyectos
+const projects = ref([]);
 
-    name: 'workSection',
+// Función para obtener los proyectos
+const getProjects = async () => {
+  try {
+    const response = await api.get('/api/projects?limit=4');
+    projects.value = response.data.data;
+  } catch (error) {
+    console.error('Error al hacer la solicitud GET:', error);
+  }
+};
 
-    components: {
-        projectList
-    },
-
-    data: () => ({
-
-        projects: []
-    }),
-
-    methods: {
-
-        getProjects() {
-            api.get('/api/projects?limit=4')
-                .then(response => {
-                    this.projects = response.data.data;
-                })
-                .catch(error => {
-                    console.error('Error al hacer la solicitud GET:', error);
-                });
-        }
-    },
-
-    mounted() {
-        this.getProjects();
-    }
-
-}
+// Llama a getProjects cuando el componente se monta
+onMounted(() => {
+  getProjects();
+});
 </script>
 
 <style scoped>
