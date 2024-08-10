@@ -1,18 +1,14 @@
 <template>
-    <v-card class="article-entry" :elevated="0" variant="text" :href="href">
-        <div class="d-flex">
-            <v-img
-                :src="imgSrc"
-                class="article-image"
-                cover
-            ></v-img>
-            <div class="article-content pa-2">
-                <div class="img-container">
-                    <v-img class="img" :src="imgBlog"></v-img>
+    <v-card class="card-container" :elevated="0" variant="text" :href="href">
+        <div class="d-flex flex-column flex-md-row">
+            <v-img :src="imgSrc"  :aspect-ratio="16 / 9" cover></v-img>
+            <div class="card-content pa-2">
+                <div class=".logo-date d-flex flex justify-space-between align-center w-100">
+                    <v-img class="logo w-100 mb-2" :src="imgBlog"></v-img>
                     <p>{{ date }}</p>
                 </div>
 
-                <div class="article-title">
+                <div class="article-title mb-5">
                     <h3>{{ title }}</h3>
                     <p>{{ description }}</p>
                 </div>
@@ -58,46 +54,19 @@ const props = defineProps({
 </script>
 
 <style scoped>
-.article-entry {
-    display: flex;
-    flex-direction: row;
-}
 
-.article-image {
-    width: 33.33%; /* Ocupa 1/3 del contenedor */
-    height: auto;
-}
-
-.article-content {
-    width: 66.67%; /* Ocupa 2/3 del contenedor */
-    padding: 16px; /* Ajusta el padding según sea necesario */
-}
-
-.img-container {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 16px; /* Espaciado entre la imagen y el texto */
-}
-
-.img {
+.card-content {
     width: 100%;
-    height: auto;
-    margin-bottom: 8px; /* Espaciado debajo de la imagen */
+
+    @media only screen and (min-width: 1028px) {
+        width: 60%;
+        padding: 16px;
+    }
+
+
 }
 
-.article-title {
-    margin-bottom: 16px;
-}
-
-.d-flex {
-    display: flex;
-}
-
-.d-flex.flex-wrap {
-    flex-wrap: wrap;
-}
-
-.article-entry {
+.card-container {
     padding-bottom: 10px;
     display: flex;
     flex-direction: column;
@@ -117,24 +86,8 @@ const props = defineProps({
     }
 }
 
-.article-entry * {
-    background: inherit;
-}
-
-.img-container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.img {
+.logo {
     max-width: 40px;
-}
-
-.article-title {
-    margin-bottom: 15px;
 }
 
 .article-title h3 {
@@ -149,7 +102,7 @@ const props = defineProps({
     }
 }
 
-.article-entry p {
+.card-container p {
     font-size: 16px;
 
     @media only screen and (min-width: 1024px) {
@@ -161,7 +114,7 @@ const props = defineProps({
     color: grey;
 }
 
-.img-container p {
+.logo-date p {
     font-size: 14px;
 
     @media only screen and (min-width: 1024px) {
