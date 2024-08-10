@@ -54,7 +54,7 @@ const blogEntry = ref([]);
 const loading = ref(true);
 
 const getArticles = async () => {
-  api.get('/api/articles/filter?seccion=programacion&limit=4')
+  api.get('/api/articles/filter?seccion=programacion&limit=6')
     .then(response => {
       blogEntry.value = response.data.data;
 
@@ -81,7 +81,7 @@ onMounted(() => {
     grid-template-columns: 1fr;
 
     @media only screen and (min-width: 768px) {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         grid-row-gap: 4rem;
         grid-column-gap: 2rem;
     }
