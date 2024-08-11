@@ -7,7 +7,10 @@
         <projectList :projectsList="projects"></projectList>
 
         <v-sheet class="button-container">
-            <a href="/proyectos" class="button">Ver mas proyectos <span class="mdi mdi-arrow-right-thin"></span></a>
+            <v-btn variant="elevated" class="mt-5" color="#0801ff" href="/proyectos">
+                Ver todos los articulos
+                <svg-icon type="mdi" :path="mdiChevronRight"></svg-icon>
+            </v-btn>
         </v-sheet>
     </v-sheet>
 </template>
@@ -16,6 +19,8 @@
 import { ref, onMounted } from 'vue';
 import api from '../api';
 import ProjectList from './ProjectsList.vue';
+import SvgIcon from '@jamescoyle/vue-icon';
+import { mdiChevronRight  } from '@mdi/js';
 
 // Define la referencia para los proyectos
 const projects = ref([]);

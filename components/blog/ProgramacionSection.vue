@@ -4,12 +4,12 @@
             <h2 class="text-h5 font-weight-bold text-md-h4 mb-2">
                 Programación
             </h2>
-            <p>Artículos recientes</p>
+            <p>Encuentra guías prácticas y tutoriales para mejorar tus habilidades de desarrollo. <br> Destacando tecnologías como: Spring Boot, Laravel, Vue.js y Nuxt </p>
         </div>
         <div>
             <v-btn variant="tonal" class="mt-5" color="#0801ff" href="/programacion">
                 Ver todos los articulos
-                <v-icon right>mdi-chevron-right</v-icon>
+                <svg-icon type="mdi" :path="mdiChevronRight"></svg-icon>
             </v-btn>
         </div>
     </div>
@@ -40,6 +40,8 @@
 // import SkeletonArticleCardSecondary from './SkeletonArticleCardSecondary.vue';
 import ArticleCard from './ArticleCard.vue';
 import api from '../../api.js';
+import SvgIcon from '@jamescoyle/vue-icon';
+import { mdiTagOutline, mdiChevronRight  } from '@mdi/js';
 
 const dominio = api.defaults.baseURL;
 

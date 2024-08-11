@@ -35,9 +35,10 @@
       <div class="section">
         <p>Tienes preguntas?</p>
 
-        <v-btn prepend-icon="mdi mdi-email-arrow-right-outline" variant="elevated"
+        <v-btn variant="elevated"
           href="mailto:axel.17cruz@gmail.com" class="ma-5" color="#f5f1f1">
           Contacto
+          <svg-icon type="mdi" :path="mdiEmailArrowRightOutline"></svg-icon>
         </v-btn>
       </div>
 
@@ -57,7 +58,8 @@
 </template>
 
 <script setup>
-//const props = defineProps(['blogEntry']);
+import SvgIcon from '@jamescoyle/vue-icon';
+import {  mdiEmailArrowRightOutline } from '@mdi/js';
 </script>
 
 <style scoped>

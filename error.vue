@@ -8,7 +8,7 @@
             <h2 class="text-subtitle-1">{{ error.message }}</h2>
             <p class="mt-5" v-if="error.statusCode === 404">Lo siento, la página que estás buscando no existe.</p>
             <p v-else class="mt-5">Hubo un problema al procesar tu solicitud.</p>
-            <v-btn variant="tonal" class="mt-5" color="#0801ff" to="/">Regresar al inicio <v-icon right>mdi-chevron-right</v-icon></v-btn>
+            <v-btn variant="tonal" class="mt-5" color="#0801ff" to="/">Regresar al inicio  <svg-icon type="mdi" :path="mdiChevronRight"></svg-icon></v-btn>
           </v-col>
         </v-row>
       </v-container>
@@ -16,6 +16,8 @@
   </template>
   
   <script setup>
+  import SvgIcon from '@jamescoyle/vue-icon';
+  import { mdiChevronRight  } from '@mdi/js';
   const props = defineProps(['error'])
   </script>
   

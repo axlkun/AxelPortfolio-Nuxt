@@ -14,7 +14,7 @@
                 </a>
 
                 <button class="hide-icon" @click="toggleMenu" aria-label="Toggle Menu">
-                    <v-icon :icon="menuOpen ? 'mdi mdi-close-box' : 'mdi mdi-menu'"></v-icon>
+                    <svg-icon type="mdi" :path="menuOpen ? mdiCloseBox : mdiMenu" ></svg-icon>
                 </button>
 
             </div>
@@ -36,9 +36,11 @@
 </template>
   
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { scrollToSection } from '../utils/utils';
 import logo from '../assets/logo.svg';
+import SvgIcon from '@jamescoyle/vue-icon';
+import { mdiCloseBox, mdiMenu  } from '@mdi/js';
 
 const menuOpen = ref(false);
 

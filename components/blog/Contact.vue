@@ -8,16 +8,18 @@
                 ¿Tienes alguna pregunta, inquietud o simplemente
                 quieres decir hola? No dudes en ponerte en contacto.
             </h4>
-            <v-btn prepend-icon="mdi mdi-email-arrow-right-outline" variant="elevated" href="mailto:axel.17cruz@gmail.com"
+            <v-btn variant="elevated" href="mailto:axel.17cruz@gmail.com"
                 class="ma-5" color="#0801ff">
                 Escribir un correo
+                <svg-icon type="mdi" :path="mdiEmailArrowRightOutline"></svg-icon>
             </v-btn>
         </div>
     </v-parallax>
 </template>
     
-<script>
-
+<script setup>
+import SvgIcon from '@jamescoyle/vue-icon';
+import {  mdiEmailArrowRightOutline } from '@mdi/js';
 </script>
     
 <style scoped>

@@ -10,15 +10,17 @@
             <v-sheet class="container-aboutme-description">
                 <p>Explora una amplia variedad de temas informativos en este espacio donde encontrarás una diversidad de
                     tópicos que te mantendrán actualizado en temas de programación, tecnología, startups y más.</p>
-                <p>Estos son los artículos mas recientes <span class="mdi mdi-arrow-down-right"></span></p>
             </v-sheet>
 
         </v-sheet>
        
-        <articlesList :blogEntry="blogEntry" home="true"></articlesList>
+        <articlesList :blogEntry="blogEntry" :home="true"></articlesList>
 
         <v-sheet class="button-container">
-            <a href="/blog?ref=home" class="button">Visitar el blog <span class="mdi mdi-arrow-right-thin"></span></a>
+            <v-btn variant="elevated" class="mt-5" color="#0801ff" href="/blog?ref=home">
+                Ver todos los articulos
+                <svg-icon type="mdi" :path="mdiChevronRight"></svg-icon>
+            </v-btn>
         </v-sheet>
 
     </v-sheet>
@@ -28,6 +30,8 @@
 import articlesList from './ArticlesList.vue';
 import { ref, onMounted } from 'vue';
 import api from '../api';
+import SvgIcon from '@jamescoyle/vue-icon';
+import { mdiChevronRight  } from '@mdi/js';
 
 // Define la referencia para los proyectos
 const blogEntry = ref([]);

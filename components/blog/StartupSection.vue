@@ -2,14 +2,14 @@
     <div class="d-flex flex-column flex-md-row justify-space-between align-md-center ga-6 mt-15">
         <div>
             <h2 class="text-h5 font-weight-bold text-md-h4 mb-2">
-                Startups y Soloprenuer tips
+                Startups y SideProjects
             </h2>
-            <p>Artículos recientes</p>
+            <p>Encuentra consejos prácticos sobre la creación de Startups - SideProjects, <br> desde la validación de ideas hasta la ejecución y escalado de proyectos</p>
         </div>
         <div>
             <v-btn variant="tonal" class="mt-5" color="#0801ff" href="/startups-sideprojects">
                 Ver todos los articulos
-                <v-icon right>mdi-chevron-right</v-icon>
+                <svg-icon type="mdi" :path="mdiChevronRight"></svg-icon>
             </v-btn>
         </div>
     </div>
@@ -27,6 +27,9 @@
 <script setup>
 import ArticleCard from './ArticleCard.vue';
 import api from '../../api.js';
+import SvgIcon from '@jamescoyle/vue-icon';
+import { mdiTagOutline, mdiChevronRight  } from '@mdi/js';
+
 
 const dominio = api.defaults.baseURL;
 

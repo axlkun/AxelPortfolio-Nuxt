@@ -17,7 +17,7 @@
                             {{ project.summary }}
                         </div>
                         <div class="d-flex align-center pt-3">
-                            <v-icon class="mdi mdi-domain" contain></v-icon>
+                            <svg-icon type="mdi" :path="mdiDomain"></svg-icon>
 
                             <span class="ml-1 project-type">{{ project.company }}</span>
                         </div>
@@ -37,18 +37,13 @@
     </v-sheet>
 </template>
 
-<script>
+<script setup>
 import api from '../api';
+import SvgIcon from '@jamescoyle/vue-icon';
+import { mdiDomain  } from '@mdi/js';
 
-export default {
-
-    props: ['projectsList'],
-
-    data: () => ({
-        dominio: api.defaults.baseURL,
-        loading: true
-    })
-}
+const props = defineProps(['projectsList'])
+const dominio = api.defaults.baseURL;
 
 </script>
 
