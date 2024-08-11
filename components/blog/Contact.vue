@@ -1,5 +1,5 @@
 <template>
-    <v-parallax src="/assets/bg-image4.svg" height="400" color="grey" class="mb-10 mt-10">
+    <v-parallax src="/assets/contacto-bg.webp" height="400" color="grey" class="mb-10 mt-10">
         <div class="d-flex flex-column fill-height justify-center align-center text-white text-center">
             <h2 class="text-h4 font-weight-thin mb-4">
                 Contacto
@@ -9,7 +9,7 @@
                 quieres decir hola? No dudes en ponerte en contacto.
             </h4>
             <v-btn variant="elevated" href="mailto:axel.17cruz@gmail.com"
-                class="ma-5" color="#0801ff">
+                class="ma-5" color="#f5f1f1">
                 Escribir un correo
                 <svg-icon type="mdi" :path="mdiEmailArrowRightOutline"></svg-icon>
             </v-btn>
