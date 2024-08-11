@@ -25,6 +25,10 @@ h3 {
   line-height: inherit;
 }
 
+.text-primary-color{
+  color: var(--primary-blue);
+}
+
 ul,
 ol {
   list-style: none;

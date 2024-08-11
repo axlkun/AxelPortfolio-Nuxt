@@ -1,10 +1,10 @@
 <template>
     <div class="d-flex flex-column flex-md-row justify-space-between align-md-center ga-6 mt-15">
         <div>
-            <h2 class="text-h5 font-weight-bold text-md-h4 mb-2">
-                Programación
-            </h2>
-            <p>Encuentra guías prácticas y tutoriales para mejorar tus habilidades de desarrollo. <br> Destacando tecnologías como: Spring Boot, Laravel, Vue.js y Nuxt </p>
+            <svg-icon type="mdi" :path="mdiCodeBraces" style="color: #0801ff"></svg-icon>
+            <h2 class="text-h4 text-md-h5 font-weight-bold mb-3 text-primary-color">Programación</h2>
+            <p class="text-h5 font-weight-bold text-md-h4 mb-3">Guias prácticas y tutoriales paso a paso</p>
+            <p>Encuentra guías prácticas y tutoriales para mejorar tus habilidades de desarrollo. <br> Destacando tecnologías como: Spring Boot, Laravel, Vue.js y Nuxt. </p>
         </div>
         <div>
             <v-btn variant="tonal" class="mt-5" color="#0801ff" href="/programacion">
@@ -41,7 +41,7 @@
 import ArticleCard from './ArticleCard.vue';
 import api from '../../api.js';
 import SvgIcon from '@jamescoyle/vue-icon';
-import { mdiTagOutline, mdiChevronRight  } from '@mdi/js';
+import { mdiCodeBraces, mdiChevronRight  } from '@mdi/js';
 
 const dominio = api.defaults.baseURL;
 

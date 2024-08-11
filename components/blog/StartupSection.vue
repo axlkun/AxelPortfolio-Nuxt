@@ -1,9 +1,9 @@
 <template>
     <div class="d-flex flex-column flex-md-row justify-space-between align-md-center ga-6 mt-15">
         <div>
-            <h2 class="text-h5 font-weight-bold text-md-h4 mb-2">
-                Startups y SideProjects
-            </h2>
+            <svg-icon type="mdi" :path="mdiCashMultiple" style="color: #0801ff"></svg-icon>
+            <h2 class="text-h4 text-md-h5 font-weight-bold mb-3 text-primary-color">Startups y SideProjects</h2>
+            <p class="text-h5 font-weight-bold text-md-h4 mb-3">Encuentra ideas y aprende a escalarlas</p>
             <p>Encuentra consejos prácticos sobre la creación de Startups - SideProjects, <br> desde la validación de ideas hasta la ejecución y escalado de proyectos</p>
         </div>
         <div>
@@ -28,7 +28,7 @@
 import ArticleCard from './ArticleCard.vue';
 import api from '../../api.js';
 import SvgIcon from '@jamescoyle/vue-icon';
-import { mdiTagOutline, mdiChevronRight  } from '@mdi/js';
+import { mdiCashMultiple, mdiChevronRight  } from '@mdi/js';
 
 
 const dominio = api.defaults.baseURL;

@@ -2,12 +2,13 @@
     <!-- Titulo -->
     <div class="mt-10">
         <div class="mb-10 text-center">
-            <svg-icon type="mdi" :path="mdiTagOutline"></svg-icon>
-            <h2 class="text-h5 font-weight-bold text-md-h4 mb-2">Categorias</h2>
-            <p>Explora artículos sobre Programación, Ingeniería de Software, y Startups - SideProjects.  <br> Encuentra guías, tutoriales y estrategias para mejorar como programador y estar al día con las últimas tendencias.</p>
+            <svg-icon type="mdi" :path="mdiTagOutline" style="color: #0801ff"></svg-icon>
+            <h2 class="text-h4 text-md-h5 font-weight-bold mb-3 text-primary-color">Categorias</h2>
+            <p class="text-h5 font-weight-bold text-md-h4 mb-3">Programación, Ingeniería de Software y Startups</p>
+            <p>Explora artículos sobre Programación, Ingeniería de Software y Startups - SideProjects.  <br> Encuentra guías, tutoriales y estrategias para mejorar como programador y estar al día con las últimas tendencias.</p>
             <v-btn variant="tonal" class="mt-5" color="#0801ff" href="/blog">
                 Ver todos los articulos
-                <svg-icon type="mdi" :path="mdiChevronRight"></svg-icon>
+                <svg-icon type="mdi" :path="mdiChevronRight" color="#0801ff"></svg-icon>
             </v-btn>
         </div>
 

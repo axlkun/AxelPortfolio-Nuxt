@@ -1,9 +1,9 @@
 <template>
     <div class="d-flex flex-column flex-md-row justify-space-between align-md-center ga-6 mt-15">
         <div>
-            <h2 class="text-h5 font-weight-bold text-md-h4 mb-2">
-                Ingeniería de Software
-            </h2>
+            <svg-icon type="mdi" :path="mdiBrightness5" style="color: #0801ff"></svg-icon>
+            <h2 class="text-h4 text-md-h5 font-weight-bold mb-3 text-primary-color">Ingeniería de Software</h2>
+            <p class="text-h5 font-weight-bold text-md-h4 mb-3">Las mejores prácticas en el ciclo de desarrollo</p>
             <p>Descubre artículos que abarcan todo el proceso de Ingeniería de Software. <br> Aprende sobre las etapas clave del ciclo de vida del software</p>
         </div>
         <div>
@@ -29,7 +29,7 @@
 import ArticleCard from './ArticleCard.vue';
 import api from '../../api.js';
 import SvgIcon from '@jamescoyle/vue-icon';
-import { mdiTagOutline, mdiChevronRight  } from '@mdi/js';
+import { mdiBrightness5, mdiChevronRight  } from '@mdi/js';
 
 const dominio = api.defaults.baseURL;
 const getHref = (slug) => `/blog/${slug}`;
