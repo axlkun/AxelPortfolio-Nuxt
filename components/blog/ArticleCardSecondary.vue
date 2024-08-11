@@ -24,7 +24,6 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
 import imgBlog from '../../assets/logo-axel.svg';
 
 const props = defineProps({
