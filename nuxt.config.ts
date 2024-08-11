@@ -25,7 +25,13 @@ export default defineNuxtConfig({
         
           gtag('config', 'G-WCSKBPW0D4');
           `
-        }]
+        },
+        {
+          async: true,
+          src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1163363741001629",
+          crossorigin: "anonymous"
+        }
+      ]
     }
   },
 
