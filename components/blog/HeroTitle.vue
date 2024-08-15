@@ -4,7 +4,7 @@
     <v-row class="align-md-center w-100">
       
       <v-col cols="12" md="6">
-        <h1 class="text-primary-color font-weight-bold mb-1">AxelCruz</h1>
+        <h1 class="text-primary-color font-weight-bold mb-1">Axel Cruz Space - Blog de Programación</h1>
         <p class="text-h4 text-md-h3 font-weight-bold">
           Todo sobre programación e Ingeniería de Software
         </p>

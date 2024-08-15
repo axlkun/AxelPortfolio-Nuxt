@@ -1,13 +1,13 @@
 <template>
-    <v-parallax src="/assets/contacto-bg.webp" height="400" color="grey" class="mb-10 mt-10">
+    <v-parallax src="/assets/contacto-bg.webp" height="400" color="grey" class="mb-10 mt-10 rounded rounded-xl">
         <div class="d-flex flex-column fill-height justify-center align-center text-white text-center">
-            <h2 class="text-h4 font-weight-thin mb-4">
+            <h2 class="text-h4 font-weight-bold mb-4">
                 Contacto
             </h2>
-            <h4 class="subheading">
+            <p class="subheading">
                 ¿Tienes alguna pregunta, inquietud o simplemente
-                quieres decir hola? No dudes en ponerte en contacto.
-            </h4>
+                quieres decir hola? <br> No dudes en ponerte en contacto.
+            </p>
             <v-btn variant="elevated" href="mailto:axel.17cruz@gmail.com"
                 class="ma-5" color="#f5f1f1">
                 Escribir un correo

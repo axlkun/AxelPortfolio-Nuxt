@@ -11,6 +11,9 @@ export default defineNuxtConfig({
         { 'http-equiv': 'content-language', content: 'es' },
         // ...otras etiquetas meta
       ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ],
       
       script: [
         {
