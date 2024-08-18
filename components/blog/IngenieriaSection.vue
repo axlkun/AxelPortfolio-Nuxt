@@ -20,7 +20,7 @@
     </div>
     <div class="d-flex flex-column flex-md-row justify-space-between ga-6 mt-10" v-else>
         <ArticleCard v-for="article in blogEntry" :href="getHref(article.slug)" :imgSrc="getImgSrc(article.imageUrl)"
-        :date="article.created_at_formated" :title="article.title" :description="article.summary"
+        :date="article.created_date" :title="article.title" :description="article.summary"
         :categories="article.categories" />
     </div>
 </template>
