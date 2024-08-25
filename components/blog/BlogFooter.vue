@@ -46,7 +46,7 @@
 
     <div class="d-flex flex-row justify-center w-100">
       <p class="ma-1">
-        {{ new Date().getFullYear() }} — Unfollowers
+        {{ new Date().getFullYear() }} — Axel Cruz Space
         <a class="reset-style text-white" href="https://www.instagram.com/axlkun/" target="_blank">
           By <strong>@axlkun</strong>&#129489;
         </a>
