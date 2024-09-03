@@ -13,20 +13,75 @@
                 </a>
 
                 <button class="hide-icon" @click="toggleMenu" aria-label="Toggle Menu">
-                    <svg-icon type="mdi" :path="menuOpen ? mdiCloseBox : mdiMenu" ></svg-icon>
+                    <svg-icon type="mdi" :path="menuOpen ? mdiCloseBox : mdiMenu"></svg-icon>
                 </button>
 
             </div>
 
             <div class="container-menu" :class="{ 'hide': !menuOpen }">
                 <ul class="menu desktop-menu">
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/blog">Artículos</a></li>
-                    <li><a href="/acerca-de">Acerca de</a></li>
-                    <li><a href="/aviso-legal">Aviso Legal</a></li>
-                    <li><a href="/politica-privacidad">Política Privacidad</a></li>
-                    <li><a href="/politica-cookies">Política Cookies</a></li>
-                    <li><a href="/contacto" class="button">Contacto</a></li>
+                    <v-btn color="black" variant="text" href="/">
+                        Inicio
+                    </v-btn>
+                    
+                    <v-btn color="black" variant="text" href="/acerca-de">
+                        Acerca de
+                    </v-btn>
+
+                    <v-btn color="black" variant="text" href="/blog">
+                        Blog
+                    </v-btn>
+
+                    
+                        <v-menu>
+                            <template v-slot:activator="{ props }">
+                                <v-btn color="black" variant="text" v-bind="props">
+                                    Categorias
+                                </v-btn>
+                            </template>
+
+                            <v-list>
+                                <v-list-item>
+                                    <v-list-item-title class="mt-2">
+                                        <li><a href="/programacion">Programación</a></li>
+                                    </v-list-item-title>
+                                    <v-list-item-title class="mt-2">
+                                        <li><a href="/ingenieria-de-software">Ingeniería de Software</a></li>
+                                    </v-list-item-title>
+                                    <v-list-item-title class="mt-2">
+                                        <li><a href="/startups-sideprojects">Startups y Sideprojects</a></li>
+                                    </v-list-item-title>
+                                </v-list-item>
+                            </v-list>
+                        </v-menu>
+                    
+
+                    
+                        <v-menu>
+                            <template v-slot:activator="{ props }">
+                                <v-btn color="black" variant="text" v-bind="props">
+                                    Legal
+                                </v-btn>
+                            </template>
+
+                            <v-list>
+                                <v-list-item>
+                                    <v-list-item-title class="mt-2">
+                                        <li><a href="/aviso-legal">Aviso Legal</a></li>
+                                    </v-list-item-title>
+                                    <v-list-item-title class="mt-2">
+                                        <li><a href="/politica-privacidad">Política Privacidad</a></li>
+                                    </v-list-item-title>
+                                    <v-list-item-title class="mt-2">
+                                        <li><a href="/politica-cookies">Política Cookies</a></li>
+                                    </v-list-item-title>
+                                </v-list-item>
+                            </v-list>
+                        </v-menu>
+                    
+                        <v-btn color="#0801ff" size="small" href="/contacto">
+                            Contacto
+                        </v-btn>
                 </ul>
 
             </div>
@@ -34,25 +89,25 @@
         </nav>
     </header>
 </template>
-  
+
 <script setup>
 import { ref } from 'vue';
 import logo from '../../assets/logo.svg';
 import SvgIcon from '@jamescoyle/vue-icon';
-import { mdiCloseBox, mdiMenu  } from '@mdi/js';
+import { mdiCloseBox, mdiMenu } from '@mdi/js';
 
 const menuOpen = ref(false);
 
 const toggleMenu = () => {
-  menuOpen.value = !menuOpen.value;
+    menuOpen.value = !menuOpen.value;
 
-  if (!menuOpen.value) {
-    window.scrollTo(0, 0);
-  }
+    if (!menuOpen.value) {
+        window.scrollTo(0, 0);
+    }
 };
 
 </script>
-  
+
 <style scoped>
 .header {
     width: 100%;
@@ -75,7 +130,7 @@ nav {
     padding: 10px 0;
 
     @media only screen and (min-width: 1024px) {
-       
+
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
@@ -144,36 +199,9 @@ nav {
     }
 }
 
-.menu a {
-    font-size: 43px;
-    line-height: 1.2;
-    cursor: pointer;
-
-    @media only screen and (min-width: 1024px) {
-        font-size: 18px;
-    }
-
-    &:hover {
-        color: var(--primary-blue);
-    }
-}
-
 a:visited {
     color: black;
   }
-
-ul.menu li a.button {
-    background-color: var(--primary-blue);
-    color: white;
-    padding: 2px 8px;
-    border-radius: 8px;
-}
-
-ul.menu li a.button:hover {
-    opacity: 0.9;
-    text-decoration: none;
-    color: var(--primary-background);
-}
 
 .hide {
     display: none;
