@@ -9,6 +9,8 @@
 
             <myHeroArticles></myHeroArticles>
 
+            <myVideo></myVideo>
+
             <myAcercaDe></myAcercaDe>
 
             <myCategories></myCategories>
@@ -32,6 +34,7 @@
 import myBlogHeader from '../components/blog/BlogHeader.vue';
 import myHeroTitle from '../components/blog/HeroTitle.vue';
 import myHeroArticles from '../components/blog/HeroArticles.vue';
+import myVideo from '../components/blog/VideoTutorial.vue';
 import myAcercaDe from '../components/blog/AcercaDe.vue';
 import myCategories from '../components/blog/Categories.vue';
 import ProgramacionSection from '../components/blog/ProgramacionSection.vue';
