@@ -103,7 +103,7 @@ a {
 .html-content th, .html-content td{
   border: 1px solid grey;
   text-align: left;
-  padding: 2px;
+  padding: 10px;
 }
 
 .html-content a{
