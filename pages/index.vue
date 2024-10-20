@@ -21,6 +21,8 @@
 
             <StartupSection></StartupSection>
 
+            <PreguntasFrecuentes></PreguntasFrecuentes>
+
             <myContact></myContact>
             
         </div>
@@ -40,6 +42,7 @@ import myCategories from '../components/blog/Categories.vue';
 import ProgramacionSection from '../components/blog/ProgramacionSection.vue';
 import IngenieriaSection from '../components/blog/IngenieriaSection.vue';
 import StartupSection from '../components/blog/StartupSection.vue';
+import PreguntasFrecuentes from '~/components/PreguntasFrecuentes.vue';
 import myContact from '../components/blog/Contact.vue';
 import myBlogFooter from '../components/blog/BlogFooter.vue';
 
