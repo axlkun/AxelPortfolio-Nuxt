@@ -269,8 +269,8 @@ onMounted(() => {
     }
 }
 
-.container * {
-    background: inherit;
+.container *:not(pre):not(code) {
+  background: inherit;
 }
 
 .title {
