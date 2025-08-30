@@ -52,7 +52,7 @@ robots: 'index, follow',
 
 title: 'AxelCruz Space | Blog para Programadores',
 author: 'Axel Cruz',
-description: 'Artículos sobre Programación, la carrera de Ingeniería de Software y desarrollo de SideProjects.',
+description: 'Artículos sobre Programación, Ingeniería de Software y desarrollo de SideProjects.',
 keywords: 'programación, fullstack developer, Axel Cruz, php, laravel, nuxt, vue, vuetify, mysql, sqlserver, startp, sideproject, solopreneur',
 
 ogTitle: 'AxelCruz Space AxelCruz Space | Blog para Programadores',
